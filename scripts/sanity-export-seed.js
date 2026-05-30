@@ -16,7 +16,7 @@ const now = new Date().toISOString()
 
 for (const [slug, post] of Object.entries(context.window.BLOG_POSTS || {})) {
   docs.push({
-    _id: `blogPost.${slug}`,
+    _id: publicId('blogPost', slug),
     _type: 'blogPost',
     title: post.title,
     slug: {_type: 'slug', current: slug},
@@ -41,7 +41,7 @@ for (const [slug, post] of Object.entries(context.window.BLOG_POSTS || {})) {
 
 for (const [slug, study] of Object.entries(context.window.CASE_STUDIES || {})) {
   docs.push({
-    _id: `caseStudy.${slug}`,
+    _id: publicId('caseStudy', slug),
     _type: 'caseStudy',
     company: study.company,
     slug: {_type: 'slug', current: slug},
@@ -68,7 +68,7 @@ for (const [slug, study] of Object.entries(context.window.CASE_STUDIES || {})) {
 
 for (const [slug, product] of Object.entries(context.window.CMS?.products || {})) {
   docs.push({
-    _id: `productPage.${slug}`,
+    _id: publicId('productPage', slug),
     _type: 'productPage',
     name: product.title,
     slug: {_type: 'slug', current: slug},
@@ -99,7 +99,7 @@ for (const group of Object.values(context.window.CMS?.partners || {})) {
 }
 
 docs.push({
-  _id: 'siteSettings.productiveMachines',
+  _id: publicId('siteSettings', 'productiveMachines'),
   _type: 'siteSettings',
   title: 'Productive Machines',
   siteUrl: 'https://productivemachines.co.uk',
@@ -120,7 +120,7 @@ console.log(`Wrote ${docs.length} Sanity seed documents to ${path.relative(root,
 function pageDoc(type, page, prefix) {
   const slug = slugify(page.title)
   return {
-    _id: `${type}.${prefix}.${slug}`,
+    _id: publicId(type, prefix, slug),
     _type: type,
     title: page.title,
     slug: {_type: 'slug', current: slug},
@@ -192,6 +192,13 @@ function slugify(value = '') {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '')
     .slice(0, 72)
+}
+
+function publicId(...parts) {
+  return parts
+    .filter(Boolean)
+    .map((part) => slugify(part))
+    .join('-')
 }
 
 function key() {

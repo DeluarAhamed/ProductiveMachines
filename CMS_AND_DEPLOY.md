@@ -4,6 +4,11 @@
 
 The Sanity Studio lives in `studio/`.
 
+- Project name: Productive Machines
+- Project ID: `nv9066sm`
+- Dataset: `production`
+- Hosted Studio: https://productive-machines-cms.sanity.studio
+
 Content models included:
 
 - Blog / news articles
@@ -17,16 +22,15 @@ Content models included:
 
 Setup:
 
-1. Create a Sanity project at https://www.sanity.io/manage.
-2. Copy `studio/.env.example` to `studio/.env`.
-3. Set:
+1. Copy `studio/.env.example` to `studio/.env`.
+2. Confirm:
 
 ```bash
-SANITY_STUDIO_PROJECT_ID=your-project-id
+SANITY_STUDIO_PROJECT_ID=nv9066sm
 SANITY_STUDIO_DATASET=production
 ```
 
-4. Install and run:
+3. Install and run:
 
 ```bash
 npm run studio:install
