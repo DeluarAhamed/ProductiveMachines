@@ -50,7 +50,7 @@ function Hero() {
         position: 'absolute', inset: 0,
         backgroundImage: `url(https://i.ytimg.com/vi/${YT_ID}/maxresdefault.jpg)`,
         backgroundSize: 'cover', backgroundPosition: 'center',
-        filter: 'saturate(0.85) brightness(0.7)',
+        filter: 'saturate(0.92) brightness(0.88)',
       }} />
 
       {/* YT iframe — sized to cover */}
@@ -69,7 +69,7 @@ function Hero() {
             width: 'max(100vw, 177.78vh)',
             height: 'max(56.25vw, 100vh)',
             pointerEvents: 'none',
-            opacity: 0.62,
+            opacity: 0.52,
           }}
         />
       </div>
@@ -77,19 +77,19 @@ function Hero() {
       {/* Dark overlay */}
       <div aria-hidden style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(90deg, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.92) 42%, rgba(0,0,0,0.34) 70%, rgba(0,0,0,0.34) 100%)',
+        background: 'linear-gradient(90deg, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.40) 42%, rgba(0,0,0,0.08) 70%, rgba(0,0,0,0.12) 100%)',
       }} />
       <div aria-hidden style={{
         position: 'absolute', inset: 0,
         background: [
-          'radial-gradient(ellipse 46% 58% at 36% 43%, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.46) 38%, transparent 72%)',
-          'radial-gradient(ellipse 28% 36% at 76% 42%, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.82) 44%, transparent 78%)',
+          'radial-gradient(ellipse 38% 48% at 32% 44%, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.16) 44%, transparent 72%)',
+          'radial-gradient(ellipse 22% 28% at 76% 42%, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.14) 52%, transparent 80%)',
         ].join(', '),
         pointerEvents: 'none',
       }} />
       <div aria-hidden style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(180deg, rgba(0,0,0,0.42) 0%, transparent 36%, rgba(0,0,0,0.84) 100%)',
+        background: 'linear-gradient(180deg, rgba(0,0,0,0.18) 0%, transparent 42%, rgba(0,0,0,0.42) 100%)',
         pointerEvents: 'none',
       }} />
 
