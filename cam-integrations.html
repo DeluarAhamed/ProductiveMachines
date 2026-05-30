@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CAM Integrations — Siemens NX, Mastercam | Productive Machines</title>
+  <meta name="description" content="SenseNC inside the CAM you already use. Native plugins for Siemens NX and Mastercam, with Fusion 360 and hyperMILL in development." />
+  
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://productivemachines.co.uk/cam-integrations.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="Productive Machines" />
+  <meta property="og:title" content="CAM Integrations — Siemens NX, Mastercam | Productive Machines" />
+  <meta property="og:description" content="SenseNC inside the CAM you already use. Native plugins for Siemens NX and Mastercam, with Fusion 360 and hyperMILL in development." />
+  <meta property="og:url" content="https://productivemachines.co.uk/cam-integrations.html" />
+  <meta property="og:image" content="https://productivemachines.co.uk/assets/og-productive-machines.png" />
+  <meta property="og:image:alt" content="Productive Machines CNC optimisation software" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CAM Integrations — Siemens NX, Mastercam | Productive Machines" />
+  <meta name="twitter:description" content="SenseNC inside the CAM you already use. Native plugins for Siemens NX and Mastercam, with Fusion 360 and hyperMILL in development." />
+  <meta name="twitter:image" content="https://productivemachines.co.uk/assets/og-productive-machines.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://productivemachines.co.uk/#organization","name":"Productive Machines","url":"https://productivemachines.co.uk","logo":"https://productivemachines.co.uk/assets/favicon.png","foundingDate":"2019","address":{"@type":"PostalAddress","addressLocality":"Rotherham","addressRegion":"South Yorkshire","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/company/productivemachines/","https://www.youtube.com/@productivemachines"]},{"@type":"WebSite","@id":"https://productivemachines.co.uk/#website","url":"https://productivemachines.co.uk","name":"Productive Machines","publisher":{"@id":"https://productivemachines.co.uk/#organization"}},{"@type":"BreadcrumbList","@id":"https://productivemachines.co.uk/cam-integrations.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://productivemachines.co.uk"},{"@type":"ListItem","position":2,"name":"CAM Integrations","item":"https://productivemachines.co.uk/cam-integrations.html"}]},{"@type":"WebPage","@id":"https://productivemachines.co.uk/cam-integrations.html#webpage","name":"CAM Integrations — Siemens NX, Mastercam | Productive Machines","description":"SenseNC inside the CAM you already use. Native plugins for Siemens NX and Mastercam, with Fusion 360 and hyperMILL in development.","url":"https://productivemachines.co.uk/cam-integrations.html","isPartOf":{"@id":"https://productivemachines.co.uk/#website"},"publisher":{"@id":"https://productivemachines.co.uk/#organization"},"breadcrumb":{"@id":"https://productivemachines.co.uk/cam-integrations.html#breadcrumb"}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3" />
+  <link rel="shortcut icon" href="assets/favicon.png?v=3" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png?v=3" />
+  <link rel="apple-touch-icon" href="assets/favicon.png?v=3" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+  <script src="cms-content.js"></script>
+  <script src="api.js?v=2"></script>
+  <script type="text/babel" src="shared.jsx"></script>
+  <script type="text/babel" src="page-template.jsx"></script>
+  <script type="text/babel" data-presets="env,react">
+    const data = window.CMS.partners.cam;
+    function App() {
+      return (
+        <ModalProvider>
+          <div id="top">
+            <Nav />
+            <NavSpacer />
+            <main>
+              <ArticleLayout {...data} />
+              <PageCTA heading="Ready to see it on your parts?" sub="Send us a tool list or a CAM file. We'll show you exactly what SenseNC does on your jobs." primary={{label:'Book a demo', href:'book-demo.html'}} secondary={{label:'See products', href:'products.html'}} accent={data.accent} />
+            </main>
+            <Footer />
+          </div>
+        </ModalProvider>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

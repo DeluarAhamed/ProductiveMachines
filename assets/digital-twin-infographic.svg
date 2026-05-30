@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="SenseNC digital twin machining simulation">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#07101f"/>
+      <stop offset="0.55" stop-color="#0a1d35"/>
+      <stop offset="1" stop-color="#08110d"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" x2="1">
+      <stop offset="0" stop-color="#2250fc"/>
+      <stop offset="1" stop-color="#39d98a"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <g opacity=".13" stroke="#fff">
+    <path d="M0 160h1200M0 320h1200M0 480h1200M0 640h1200M0 800h1200"/>
+    <path d="M160 0v900M320 0v900M480 0v900M640 0v900M800 0v900M960 0v900M1120 0v900"/>
+  </g>
+  <g transform="translate(600 465)">
+    <ellipse rx="360" ry="170" fill="#2250fc" opacity=".08"/>
+    <ellipse rx="330" ry="150" fill="none" stroke="#3ffd7e" stroke-opacity=".22"/>
+    <ellipse rx="260" ry="110" fill="none" stroke="#5a7cff" stroke-opacity=".32"/>
+    <path d="M-330 30 C-235-135-140-135-55 30S115 195 205 30s175-165 265 0" fill="none" stroke="url(#blue)" stroke-width="8" filter="url(#glow)"/>
+    <path d="M-315 120 C-205-20-110-25 0 120s220 145 330 0" fill="none" stroke="#ffffff" stroke-opacity=".32" stroke-width="3"/>
+    <g transform="translate(-90 -15)">
+      <path d="M-125 110 125 20 200 65-48 158Z" fill="#d7e5ff" opacity=".94"/>
+      <path d="M-125 110-48 158-48 205-125 155Z" fill="#7aa6ff"/>
+      <path d="M-48 158 200 65v47L-48 205Z" fill="#1745c8"/>
+      <path d="M-75 112 120 42" stroke="#2250fc" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="120" cy="42" r="18" fill="#3ffd7e" filter="url(#glow)"/>
+    </g>
+    <g transform="translate(210 -170)">
+      <rect x="-95" y="-50" width="190" height="100" rx="18" fill="#fff" opacity=".08" stroke="#fff" stroke-opacity=".18"/>
+      <text x="0" y="-10" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="700">LIVE TWIN</text>
+      <text x="0" y="22" text-anchor="middle" fill="#3ffd7e" font-family="Arial, sans-serif" font-size="18">+18% reserve</text>
+    </g>
+    <g fill="#3ffd7e" filter="url(#glow)">
+      <circle cx="-245" cy="-70" r="8"/>
+      <circle cx="62" cy="-128" r="8"/>
+      <circle cx="308" cy="34" r="8"/>
+    </g>
+  </g>
+  <g transform="translate(72 74)" fill="#fff" font-family="Arial, sans-serif">
+    <text font-size="24" opacity=".62" letter-spacing="5">SENSENC FINESSE</text>
+    <text y="54" font-size="54" font-weight="800">Digital twin simulation</text>
+  </g>
+</svg>

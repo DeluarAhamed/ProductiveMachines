@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Productive Machines | Book a SenseNC CNC Optimisation Demo</title>
+  <meta name="description" content="Talk to Productive Machines about SenseNC, CNC chatter elimination, feed-rate optimisation, tap testing and AMRC-verified productivity improvements." />
+  
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://productivemachines.co.uk/contact.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="Productive Machines" />
+  <meta property="og:title" content="Contact Productive Machines | Book a SenseNC CNC Optimisation Demo" />
+  <meta property="og:description" content="Talk to Productive Machines about SenseNC, CNC chatter elimination, feed-rate optimisation, tap testing and AMRC-verified productivity improvements." />
+  <meta property="og:url" content="https://productivemachines.co.uk/contact.html" />
+  <meta property="og:image" content="https://productivemachines.co.uk/assets/og-productive-machines.png" />
+  <meta property="og:image:alt" content="Productive Machines CNC optimisation software" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact Productive Machines | Book a SenseNC CNC Optimisation Demo" />
+  <meta name="twitter:description" content="Talk to Productive Machines about SenseNC, CNC chatter elimination, feed-rate optimisation, tap testing and AMRC-verified productivity improvements." />
+  <meta name="twitter:image" content="https://productivemachines.co.uk/assets/og-productive-machines.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://productivemachines.co.uk/#organization","name":"Productive Machines","url":"https://productivemachines.co.uk","logo":"https://productivemachines.co.uk/assets/favicon.png","foundingDate":"2019","address":{"@type":"PostalAddress","addressLocality":"Rotherham","addressRegion":"South Yorkshire","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/company/productivemachines/","https://www.youtube.com/@productivemachines"]},{"@type":"WebSite","@id":"https://productivemachines.co.uk/#website","url":"https://productivemachines.co.uk","name":"Productive Machines","publisher":{"@id":"https://productivemachines.co.uk/#organization"}},{"@type":"BreadcrumbList","@id":"https://productivemachines.co.uk/contact.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://productivemachines.co.uk"},{"@type":"ListItem","position":2,"name":"Contact Productive Machines","item":"https://productivemachines.co.uk/contact.html"}]},{"@type":"ContactPage","@id":"https://productivemachines.co.uk/contact.html#webpage","name":"Contact Productive Machines | Book a SenseNC CNC Optimisation Demo","description":"Talk to Productive Machines about SenseNC, CNC chatter elimination, feed-rate optimisation, tap testing and AMRC-verified productivity improvements.","url":"https://productivemachines.co.uk/contact.html","isPartOf":{"@id":"https://productivemachines.co.uk/#website"},"publisher":{"@id":"https://productivemachines.co.uk/#organization"},"breadcrumb":{"@id":"https://productivemachines.co.uk/contact.html#breadcrumb"}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3" />
+  <link rel="shortcut icon" href="assets/favicon.png?v=3" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png?v=3" />
+  <link rel="apple-touch-icon" href="assets/favicon.png?v=3" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+  <script src="api.js?v=2"></script>
+  <script type="text/babel" src="shared.jsx"></script>
+  <script type="text/babel" src="page-template.jsx"></script>
+  <script type="text/babel" src="page-contact.jsx"></script>
+  <script type="text/babel" data-presets="env,react">
+    // Mini Calendly-style scheduler
+    function Scheduler() {
+      const today = new Date();
+      const [selectedDate, setSelectedDate] = React.useState(null);
+      const [selectedTime, setSelectedTime] = React.useState(null);
+      const [step, setStep] = React.useState(1);
+      const [error, setError] = React.useState('');
+      const [submitting, setSubmitting] = React.useState(false);
+
+      const days = React.useMemo(() => {
+        const arr = []; let d = new Date(today); d.setDate(d.getDate() + 1);
+        while (arr.length < 10) { const dow = d.getDay(); if (dow !== 0 && dow !== 6) arr.push(new Date(d)); d.setDate(d.getDate() + 1); }
+        return arr;
+      }, []);
+      const times = ['09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00'];
+      const fmtDate = (d) => d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
+      const fmtFull = (d) => d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError('');
+        setSubmitting(true);
+        try {
+          await window.PM.submitLead(e.currentTarget, { date: fmtFull(selectedDate), time: selectedTime });
+          setStep(3);
+        } catch (err) {
+          setError(err.message);
+        } finally {
+          setSubmitting(false);
+        }
+      };
+
+      if (step === 3) return (
+        <div style={{ background: '#fff', border: '1px solid #EEEEEE', borderRadius: 20, padding: 56, textAlign: 'center' }}>
+          <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'rgba(24,154,57,0.15)', color: '#189A39', display: 'inline-grid', placeItems: 'center', marginBottom: 16 }}>
+            <Icon.check style={{ width: 36, height: 36 }} />
+          </div>
+          <h3 style={{ fontFamily: 'Host Grotesk', fontSize: 28, fontWeight: 700, margin: '0 0 10px', color: '#000' }}>You're booked.</h3>
+          <p style={{ fontSize: 15, color: '#000', opacity: 0.7, margin: '0 0 24px' }}>Calendar invite for <strong>{fmtFull(selectedDate)} · {selectedTime}</strong> on its way.</p>
+          <a href="index.html" className="btn btn-secondary">Back to home</a>
+        </div>
+      );
+      if (step === 2) return (
+        <div style={{ background: '#fff', border: '1px solid #EEEEEE', borderRadius: 20, padding: 36 }}>
+          <button onClick={() => setStep(1)} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, opacity: 0.65, marginBottom: 20 }}>
+            <Icon.arrowL style={{ width: 14, height: 14 }} /> Back
+          </button>
+          <div style={{ fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#2250FC', marginBottom: 6 }}>You picked</div>
+          <h3 style={{ fontFamily: 'Host Grotesk', fontWeight: 700, fontSize: 24, margin: '0 0 28px', color: '#000', letterSpacing: '-0.02em' }}>
+            {fmtFull(selectedDate)} · {selectedTime}
+          </h3>
+          <form data-lead-type="scheduler" onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <input type="text" name="website" tabIndex="-1" autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }} />
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }} className="bd-form-row">
+              <SchedField name="firstName" label="First name *" placeholder="Jane" required />
+              <SchedField name="lastName" label="Last name *" placeholder="Marchetti" required />
+            </div>
+            <SchedField name="email" label="Work email *" type="email" placeholder="jane@yourshop.com" required />
+            <SchedField name="company" label="Company" placeholder="Marchetti Precision Ltd" />
+            <SchedField name="message" label="What would you like to discuss?" placeholder="Curious about NX integration, want a tap test, considering Finesse..." textarea />
+            {error && <p role="alert" style={{ color: '#B42318', fontSize: 13, margin: 0 }}>{error}</p>}
+            <button type="submit" disabled={submitting} className="btn btn-primary" style={{ marginTop: 8, justifyContent: 'center', padding: '14px 24px', fontSize: 16, opacity: submitting ? 0.7 : 1 }}>
+              {submitting ? 'Confirming...' : 'Confirm'} <Icon.arrow className="arr" />
+            </button>
+          </form>
+        </div>
+      );
+
+      // Step 1 — calendar
+      return (
+        <div style={{ background: '#fff', border: '1px solid #EEEEEE', borderRadius: 20, padding: 36 }}>
+          <div style={{ marginBottom: 20 }}>
+            <div style={{ fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#2250FC', marginBottom: 8 }}>Step 1 of 2</div>
+            <h3 style={{ fontFamily: 'Host Grotesk', fontWeight: 700, fontSize: 24, margin: 0, color: '#000', letterSpacing: '-0.02em' }}>Pick a time</h3>
+            <p style={{ fontSize: 14, color: '#000', opacity: 0.65, margin: '6px 0 0' }}>30 min · UK time (GMT)</p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }} className="bd-grid">
+            <div>
+              <div style={{ fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', opacity: 0.55, marginBottom: 10 }}>Date</div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6, maxHeight: 320, overflowY: 'auto' }}>
+                {days.map((d, i) => {
+                  const sel = selectedDate && d.toDateString() === selectedDate.toDateString();
+                  return (
+                    <button key={i} onClick={() => setSelectedDate(d)} style={{
+                      padding: '12px 14px', borderRadius: 8, textAlign: 'left',
+                      background: sel ? '#2250FC' : '#f8f8f8', color: sel ? '#fff' : '#000',
+                      fontFamily: 'Host Grotesk', fontWeight: 500, fontSize: 14,
+                      transition: 'all .2s',
+                    }}>{fmtDate(d)}</button>
+                  );
+                })}
+              </div>
+            </div>
+            <div>
+              <div style={{ fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', opacity: 0.55, marginBottom: 10 }}>Time</div>
+              {selectedDate ? (
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+                  {times.map(t => {
+                    const sel = selectedTime === t;
+                    return (
+                      <button key={t} onClick={() => setSelectedTime(t)} style={{
+                        padding: '12px 8px', borderRadius: 8,
+                        background: sel ? '#2250FC' : '#fff', color: sel ? '#fff' : '#000',
+                        border: sel ? '1px solid #2250FC' : '1px solid #EEEEEE',
+                        fontFamily: 'Host Grotesk', fontWeight: 500, fontSize: 14, transition: 'all .2s',
+                      }}>{t}</button>
+                    );
+                  })}
+                </div>
+              ) : <div style={{ padding: 20, textAlign: 'center', opacity: 0.55, fontSize: 14, background: '#f8f8f8', borderRadius: 12 }}>Pick a date first</div>}
+            </div>
+          </div>
+          <button disabled={!selectedDate || !selectedTime} onClick={() => setStep(2)} className="btn btn-primary"
+            style={{ marginTop: 24, width: '100%', justifyContent: 'center', padding: '14px 24px', fontSize: 16,
+              opacity: (!selectedDate || !selectedTime) ? 0.4 : 1, pointerEvents: (!selectedDate || !selectedTime) ? 'none' : 'auto' }}>
+            Next <Icon.arrow className="arr" />
+          </button>
+          <style>{`
+            @media (max-width: 700px) {
+              .bd-grid { grid-template-columns: 1fr !important; }
+              .bd-form-row { grid-template-columns: 1fr !important; }
+            }
+          `}</style>
+        </div>
+      );
+    }
+
+    function SchedField({ name, label, placeholder, type='text', textarea, required }) {
+      const [focus, setFocus] = React.useState(false);
+      const s = {
+        background: '#fff', border: focus ? '1px solid #2250FC' : '1px solid #EEEEEE', borderRadius: 8,
+        padding: '13px 14px', color: '#000', fontFamily: 'Host Grotesk', fontSize: 15, outline: 'none',
+        transition: 'border-color .2s', width: '100%', resize: 'vertical',
+      };
+      return (
+        <label style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          <span style={{ fontSize: 11, letterSpacing: '0.16em', textTransform: 'uppercase', opacity: 0.6 }}>{label}</span>
+          {textarea ? <textarea name={name} required={required} placeholder={placeholder} rows={3} onFocus={() => setFocus(true)} onBlur={() => setFocus(false)} style={s} />
+                    : <input name={name} required={required} type={type} placeholder={placeholder} onFocus={() => setFocus(true)} onBlur={() => setFocus(false)} style={s} />}
+        </label>
+      );
+    }
+
+    function App() {
+      return (
+        <ModalProvider>
+          <div id="top">
+            <Nav />
+            <NavSpacer />
+            <main>
+              <PageHero
+                tag="Talk to us"
+                headline="Pick a time. We'll bring the demo."
+                subhead="A 30-minute video call with an AMRC engineer. Bring your hardest part — we'll show you exactly what SenseNC does on it."
+                accent="#2250FC"
+              />
+              <section style={{ background: '#f8f8f8', padding: '40px 0 100px' }}>
+                <div className="container" style={{ maxWidth: 1100 }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 48, alignItems: 'flex-start' }} className="ct-main">
+                    {/* What to expect */}
+                    <aside style={{
+                      padding: 32, background: '#0a0a0a', color: '#fff', borderRadius: 20,
+                      position: 'sticky', top: 140,
+                    }} className="ct-aside">
+                      <div style={{ fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#3FFD7E', marginBottom: 14 }}>What to expect</div>
+                      <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 14 }}>
+                        {[
+                          ['30 min', 'Video call'],
+                          ['AMRC engineer', 'UK-based, technical'],
+                          ['Your CAM file', 'Bring a tool list or NX program'],
+                          ['Live demo', 'No slides — we work on your job'],
+                        ].map(([k, v]) => (
+                          <li key={k} style={{ display: 'flex', gap: 12 }}>
+                            <span style={{ display: 'inline-flex', width: 110, fontFamily: 'Host Grotesk', fontWeight: 700, fontSize: 16, color: '#3FFD7E', flexShrink: 0 }}>{k}</span>
+                            <span style={{ fontSize: 14, opacity: 0.85 }}>{v}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div style={{ marginTop: 28, paddingTop: 20, borderTop: '1px solid rgba(255,255,255,0.15)', fontSize: 13, opacity: 0.7 }}>
+                        Prefer a lead form? <a href="book-demo.html" style={{ color: '#3FFD7E', borderBottom: '1px solid #3FFD7E' }}>Book a demo →</a>
+                      </div>
+                    </aside>
+
+                    <Scheduler />
+                  </div>
+                  <style>{`@media (max-width: 1024px) {
+                    .ct-main { grid-template-columns: 1fr !important; }
+                    .ct-aside { position: static !important; }
+                  }`}</style>
+                </div>
+              </section>
+              <ContactFAQ />
+            </main>
+            <Footer />
+          </div>
+        </ModalProvider>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

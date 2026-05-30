@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /_check/
+Disallow: /scrap/
+Sitemap: https://productivemachines.co.uk/sitemap.xml

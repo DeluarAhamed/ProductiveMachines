@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SenseNC Products | CNC Feeds, Speeds, Digital Twin &amp; Chatter Elimination</title>
+  <meta name="description" content="Compare TapStarter, SenseNC Feeds and SenseNC Finesse for CNC feed-rate optimisation, digital-twin simulation, chatter elimination and CAM-native productivity gains." />
+  
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://productivemachines.co.uk/products.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="Productive Machines" />
+  <meta property="og:title" content="SenseNC Products | CNC Feeds, Speeds, Digital Twin &amp; Chatter Elimination" />
+  <meta property="og:description" content="Compare TapStarter, SenseNC Feeds and SenseNC Finesse for CNC feed-rate optimisation, digital-twin simulation, chatter elimination and CAM-native productivity gains." />
+  <meta property="og:url" content="https://productivemachines.co.uk/products.html" />
+  <meta property="og:image" content="https://productivemachines.co.uk/assets/og-productive-machines.png" />
+  <meta property="og:image:alt" content="Productive Machines CNC optimisation software" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SenseNC Products | CNC Feeds, Speeds, Digital Twin &amp; Chatter Elimination" />
+  <meta name="twitter:description" content="Compare TapStarter, SenseNC Feeds and SenseNC Finesse for CNC feed-rate optimisation, digital-twin simulation, chatter elimination and CAM-native productivity gains." />
+  <meta name="twitter:image" content="https://productivemachines.co.uk/assets/og-productive-machines.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://productivemachines.co.uk/#organization","name":"Productive Machines","url":"https://productivemachines.co.uk","logo":"https://productivemachines.co.uk/assets/favicon.png","foundingDate":"2019","address":{"@type":"PostalAddress","addressLocality":"Rotherham","addressRegion":"South Yorkshire","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/company/productivemachines/","https://www.youtube.com/@productivemachines"]},{"@type":"WebSite","@id":"https://productivemachines.co.uk/#website","url":"https://productivemachines.co.uk","name":"Productive Machines","publisher":{"@id":"https://productivemachines.co.uk/#organization"}},{"@type":"BreadcrumbList","@id":"https://productivemachines.co.uk/products.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://productivemachines.co.uk"},{"@type":"ListItem","position":2,"name":"SenseNC Products","item":"https://productivemachines.co.uk/products.html"}]},{"@type":"CollectionPage","@id":"https://productivemachines.co.uk/products.html#webpage","name":"SenseNC Products | CNC Feeds, Speeds, Digital Twin & Chatter Elimination","description":"Compare TapStarter, SenseNC Feeds and SenseNC Finesse for CNC feed-rate optimisation, digital-twin simulation, chatter elimination and CAM-native productivity gains.","url":"https://productivemachines.co.uk/products.html","isPartOf":{"@id":"https://productivemachines.co.uk/#website"},"publisher":{"@id":"https://productivemachines.co.uk/#organization"},"breadcrumb":{"@id":"https://productivemachines.co.uk/products.html#breadcrumb"}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3" />
+  <link rel="shortcut icon" href="assets/favicon.png?v=3" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png?v=3" />
+  <link rel="apple-touch-icon" href="assets/favicon.png?v=3" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+  <script src="api.js?v=2"></script>
+  <script type="text/babel" src="shared.jsx"></script>
+  <script type="text/babel" src="home-3.jsx"></script>
+  <script type="text/babel" src="page-products.jsx"></script>
+  <script type="text/babel" data-presets="env,react">
+    function App() {
+      return (
+        <ModalProvider><div id="top"><Nav /><NavSpacer /><main>
+            <ProductsHero />
+            <ProductDetail
+              id="tapstarter"
+              tag="Entry · From £49/mo"
+              tagColor="#F59E0B"
+              name="TapStarter"
+              sub="Optimal spindle speeds in seconds. No CAM required."
+              body="Upload a tool combo and get a safe operating range instantly. Perfect for shops without a CAM seat — or as a fast sanity check before any job runs."
+              bullets={[
+                'Web-based — works on any browser, no install',
+                'Compatible with any spindle / tool / holder combo',
+                'Free 30-day trial, no card required',
+                'Built-in tap-test workflow for accurate models',
+              ]}
+              image={ASSETS.tapStarter}
+            />
+            <ProductDetail
+              id="feeds"
+              tag="Advanced · From £249/mo"
+              tagColor="#2250FC"
+              name="SenseNC Feeds"
+              sub="Toolpath feed-rate optimisation, inside your CAM."
+              body="Plugs into NX and Mastercam. Sends every move at the right feed. Optimised programs ship back in minutes — your programmers stay productive on day one."
+              bullets={[
+                'Siemens NX and Mastercam plugins',
+                'Whole-program optimisation (every move)',
+                'AMRC-verified physics models',
+                'Live optimisation dashboard',
+              ]}
+              reverse
+            />
+            <ProductDetail
+              id="finesse"
+              tag="Full power · Enterprise"
+              tagColor="#3FFD7E"
+              name="SenseNC Finesse"
+              sub="Digital twin. Zero chatter. Maximum machine."
+              body="The complete platform: full toolpath optimisation, real-time chatter elimination, in-process monitoring. Used by Boeing, Siemens and AML Aerospace."
+              bullets={[
+                'Full digital-twin simulation',
+                'Real-time chatter elimination (stability lobes)',
+                'In-process monitoring & alerts',
+                'Dedicated AMRC application engineer',
+                'Custom integrations available',
+              ]}
+              dark
+              image="assets/digital-twin-infographic.svg"
+              cta="Talk to engineering"
+            />
+            <ProductsCompare />
+            <ContactBand />
+          </main><Footer /></div></ModalProvider>);}ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

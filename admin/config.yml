@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "cms"
+    label: "CMS Collections"
+    files:
+      - label: "Page Content"
+        name: "page_content"
+        file: "cms-content.js"
+        fields:
+          - { label: "CMS JavaScript", name: "body", widget: "code", default_language: "javascript" }
+      - label: "Blog & Case Studies"
+        name: "blog_case_studies"
+        file: "cms-blog.js"
+        fields:
+          - { label: "Blog JavaScript", name: "body", widget: "code", default_language: "javascript" }

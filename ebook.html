@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free e-book — The Chatter-Free Shop | Productive Machines</title>
+  <meta name="description" content="28 pages on stability lobes, feeds &amp;amp; speeds, tap testing and the AMRC method. The primer we wish every machine shop had. Free download." />
+  
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://productivemachines.co.uk/ebook.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="Productive Machines" />
+  <meta property="og:title" content="Free e-book — The Chatter-Free Shop | Productive Machines" />
+  <meta property="og:description" content="28 pages on stability lobes, feeds &amp;amp; speeds, tap testing and the AMRC method. The primer we wish every machine shop had. Free download." />
+  <meta property="og:url" content="https://productivemachines.co.uk/ebook.html" />
+  <meta property="og:image" content="https://productivemachines.co.uk/assets/og-productive-machines.png" />
+  <meta property="og:image:alt" content="Productive Machines CNC optimisation software" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free e-book — The Chatter-Free Shop | Productive Machines" />
+  <meta name="twitter:description" content="28 pages on stability lobes, feeds &amp;amp; speeds, tap testing and the AMRC method. The primer we wish every machine shop had. Free download." />
+  <meta name="twitter:image" content="https://productivemachines.co.uk/assets/og-productive-machines.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://productivemachines.co.uk/#organization","name":"Productive Machines","url":"https://productivemachines.co.uk","logo":"https://productivemachines.co.uk/assets/favicon.png","foundingDate":"2019","address":{"@type":"PostalAddress","addressLocality":"Rotherham","addressRegion":"South Yorkshire","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/company/productivemachines/","https://www.youtube.com/@productivemachines"]},{"@type":"WebSite","@id":"https://productivemachines.co.uk/#website","url":"https://productivemachines.co.uk","name":"Productive Machines","publisher":{"@id":"https://productivemachines.co.uk/#organization"}},{"@type":"BreadcrumbList","@id":"https://productivemachines.co.uk/ebook.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://productivemachines.co.uk"},{"@type":"ListItem","position":2,"name":"Free e-book","item":"https://productivemachines.co.uk/ebook.html"}]},{"@type":"WebPage","@id":"https://productivemachines.co.uk/ebook.html#webpage","name":"Free e-book — The Chatter-Free Shop | Productive Machines","description":"28 pages on stability lobes, feeds &amp; speeds, tap testing and the AMRC method. The primer we wish every machine shop had. Free download.","url":"https://productivemachines.co.uk/ebook.html","isPartOf":{"@id":"https://productivemachines.co.uk/#website"},"publisher":{"@id":"https://productivemachines.co.uk/#organization"},"breadcrumb":{"@id":"https://productivemachines.co.uk/ebook.html#breadcrumb"}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3" />
+  <link rel="shortcut icon" href="assets/favicon.png?v=3" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png?v=3" />
+  <link rel="apple-touch-icon" href="assets/favicon.png?v=3" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+  <script src="cms-content.js"></script>
+  <script src="api.js?v=2"></script>
+  <script type="text/babel" src="shared.jsx"></script>
+  <script type="text/babel" src="page-template.jsx"></script>
+  <script type="text/babel" data-presets="env,react">
+    const data = window.CMS.resources.ebook;
+    function App() {
+      return (
+        <ModalProvider>
+          <div id="top">
+            <Nav />
+            <NavSpacer />
+            <main>
+              <PageHero tag={data.tag} headline={data.title} subhead={data.intro} accent={data.accent} />
+              <LeadCaptureBand
+                heading="Get the e-book — instant download"
+                sub="Just your email. We'll send the PDF immediately. No spam, unsubscribe anytime."
+                fileLabel="Download free PDF"
+                accent="#2250FC"
+              />
+              <FeatureGrid
+                tag="What you'll learn"
+                heading="Chapters at a glance"
+                sub="A practical primer aimed at programmers, machinists and shop managers — no PhD required."
+                accent="#2250FC"
+                items={[
+                  { icon: '01', title: 'Why chatter happens', text: 'The physics, the symptoms, and why "just slow down" leaves money on the table.' },
+                  { icon: '02', title: 'Tap testing 101', text: 'The 90-second test that unlocks 50% more performance from any spindle.' },
+                  { icon: '03', title: 'Stability lobes', text: 'Read a lobe diagram and pick the right cut for your tool.' },
+                  { icon: '04', title: 'Feeds & speeds', text: 'How to think about feed rate vs. surface finish vs. tool life.' },
+                  { icon: '05', title: 'The AMRC method', text: 'How we approach optimisation at the AMRC at Sheffield.' },
+                  { icon: '06', title: 'Putting it together', text: 'A worked example: optimising a Ti aerospace impeller, start to finish.' },
+                ]}
+              />
+            </main>
+            <Footer />
+          </div>
+        </ModalProvider>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

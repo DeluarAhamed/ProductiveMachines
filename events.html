@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Events — Where to find Productive Machines</title>
+  <meta name="description" content="EMO Hannover, MACH 2026, MIC 2026 and AMRC open days. Come see SenseNC live and get a tap test on your tool." />
+  
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://productivemachines.co.uk/events.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="Productive Machines" />
+  <meta property="og:title" content="Events — Where to find Productive Machines" />
+  <meta property="og:description" content="EMO Hannover, MACH 2026, MIC 2026 and AMRC open days. Come see SenseNC live and get a tap test on your tool." />
+  <meta property="og:url" content="https://productivemachines.co.uk/events.html" />
+  <meta property="og:image" content="https://productivemachines.co.uk/assets/og-productive-machines.png" />
+  <meta property="og:image:alt" content="Productive Machines CNC optimisation software" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Events — Where to find Productive Machines" />
+  <meta name="twitter:description" content="EMO Hannover, MACH 2026, MIC 2026 and AMRC open days. Come see SenseNC live and get a tap test on your tool." />
+  <meta name="twitter:image" content="https://productivemachines.co.uk/assets/og-productive-machines.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://productivemachines.co.uk/#organization","name":"Productive Machines","url":"https://productivemachines.co.uk","logo":"https://productivemachines.co.uk/assets/favicon.png","foundingDate":"2019","address":{"@type":"PostalAddress","addressLocality":"Rotherham","addressRegion":"South Yorkshire","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/company/productivemachines/","https://www.youtube.com/@productivemachines"]},{"@type":"WebSite","@id":"https://productivemachines.co.uk/#website","url":"https://productivemachines.co.uk","name":"Productive Machines","publisher":{"@id":"https://productivemachines.co.uk/#organization"}},{"@type":"BreadcrumbList","@id":"https://productivemachines.co.uk/events.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://productivemachines.co.uk"},{"@type":"ListItem","position":2,"name":"Events","item":"https://productivemachines.co.uk/events.html"}]},{"@type":"WebPage","@id":"https://productivemachines.co.uk/events.html#webpage","name":"Events — Where to find Productive Machines","description":"EMO Hannover, MACH 2026, MIC 2026 and AMRC open days. Come see SenseNC live and get a tap test on your tool.","url":"https://productivemachines.co.uk/events.html","isPartOf":{"@id":"https://productivemachines.co.uk/#website"},"publisher":{"@id":"https://productivemachines.co.uk/#organization"},"breadcrumb":{"@id":"https://productivemachines.co.uk/events.html#breadcrumb"}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3" />
+  <link rel="shortcut icon" href="assets/favicon.png?v=3" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png?v=3" />
+  <link rel="apple-touch-icon" href="assets/favicon.png?v=3" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+  <script src="cms-content.js"></script>
+  <script src="api.js?v=2"></script>
+  <script type="text/babel" src="shared.jsx"></script>
+  <script type="text/babel" src="page-template.jsx"></script>
+  <script type="text/babel" data-presets="env,react">
+    const data = window.CMS.resources.events;
+    const events = [
+      { date: 'Sep 2026', title: 'EMO Hannover', loc: 'Hannover, Germany', tag: 'Trade show', text: 'Live SenseNC demos at the Siemens partner booth. Book a 1-on-1 meeting.' },
+      { date: 'Apr 2026', title: 'MACH 2026', loc: 'Birmingham, UK', tag: 'Trade show', text: 'Our home show. Booth + speaking slot on chatter-free milling.' },
+      { date: 'Oct 2026', title: 'MIC 2026', loc: 'Hannover, Germany', tag: 'Conference', text: 'Machining Innovations Conference. Prof Ozturk delivers the keynote on stability lobes at scale.' },
+      { date: 'Monthly', title: 'AMRC Open Day', loc: 'Rotherham, UK', tag: 'Open day', text: 'See SenseNC running on real production cells at the AMRC research lab.' },
+    ];
+    function App() {
+      return (
+        <ModalProvider>
+          <div id="top">
+            <Nav />
+            <NavSpacer />
+            <main>
+              <PageHero tag={data.tag} headline={data.title} subhead={data.intro} accent={data.accent} />
+              <section style={{ background: '#fff', padding: '40px 0 100px' }}>
+                <div className="container" style={{ maxWidth: 1080 }}>
+                  {events.map((e, i) => (
+                    <a key={i} href="contact.html" style={{
+                      display: 'grid', gridTemplateColumns: '140px 1fr auto',
+                      gap: 32, padding: '32px 24px',
+                      borderTop: '1px solid #EEEEEE',
+                      transition: 'background .25s',
+                    }}
+                      onMouseEnter={(e2) => e2.currentTarget.style.background = '#f8f8f8'}
+                      onMouseLeave={(e2) => e2.currentTarget.style.background = 'transparent'}>
+                      <div>
+                        <div style={{ fontFamily: 'var(--font)', fontWeight: 700, fontSize: 22, color: '#2250FC', letterSpacing: '-0.02em' }}>{e.date}</div>
+                        <div style={{ marginTop: 6, fontSize: 12, padding: '3px 8px', borderRadius: 4, background: '#f5f5f5', display: 'inline-block', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{e.tag}</div>
+                      </div>
+                      <div>
+                        <h3 style={{ fontFamily: 'var(--font)', fontWeight: 700, fontSize: 24, margin: 0, color: '#000', letterSpacing: '-0.02em' }}>{e.title}</h3>
+                        <div style={{ fontSize: 14, color: 'var(--muted)', marginTop: 4 }}>{e.loc}</div>
+                        <p style={{ marginTop: 12, fontSize: 15, lineHeight: 1.55, color: '#000', opacity: 0.78, maxWidth: 560 }}>{e.text}</p>
+                      </div>
+                      <div style={{ alignSelf: 'center' }}>
+                        <span style={{
+                          width: 44, height: 44, borderRadius: '50%', border: '1px solid #000',
+                          display: 'grid', placeItems: 'center', transition: 'transform .3s',
+                        }}>
+                          <Icon.arrowR style={{ width: 16, height: 16 }} />
+                        </span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </section>
+              <PageCTA heading="Want a 1-on-1 demo at the next event?" sub="Pick a time and we'll send a calendar invite." accent="#2250FC" />
+            </main>
+            <Footer />
+          </div>
+        </ModalProvider>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

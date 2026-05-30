@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CNC Optimisation Case Studies | Productive Machines Results</title>
+  <meta name="description" content="Read CNC optimisation case studies from aerospace and precision manufacturers using SenseNC to cut cycle time, extend tool life and recover machine capacity." />
+  
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://productivemachines.co.uk/case-studies.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="Productive Machines" />
+  <meta property="og:title" content="CNC Optimisation Case Studies | Productive Machines Results" />
+  <meta property="og:description" content="Read CNC optimisation case studies from aerospace and precision manufacturers using SenseNC to cut cycle time, extend tool life and recover machine capacity." />
+  <meta property="og:url" content="https://productivemachines.co.uk/case-studies.html" />
+  <meta property="og:image" content="https://productivemachines.co.uk/assets/og-productive-machines.png" />
+  <meta property="og:image:alt" content="Productive Machines CNC optimisation software" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CNC Optimisation Case Studies | Productive Machines Results" />
+  <meta name="twitter:description" content="Read CNC optimisation case studies from aerospace and precision manufacturers using SenseNC to cut cycle time, extend tool life and recover machine capacity." />
+  <meta name="twitter:image" content="https://productivemachines.co.uk/assets/og-productive-machines.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://productivemachines.co.uk/#organization","name":"Productive Machines","url":"https://productivemachines.co.uk","logo":"https://productivemachines.co.uk/assets/favicon.png","foundingDate":"2019","address":{"@type":"PostalAddress","addressLocality":"Rotherham","addressRegion":"South Yorkshire","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/company/productivemachines/","https://www.youtube.com/@productivemachines"]},{"@type":"WebSite","@id":"https://productivemachines.co.uk/#website","url":"https://productivemachines.co.uk","name":"Productive Machines","publisher":{"@id":"https://productivemachines.co.uk/#organization"}},{"@type":"BreadcrumbList","@id":"https://productivemachines.co.uk/case-studies.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://productivemachines.co.uk"},{"@type":"ListItem","position":2,"name":"CNC Optimisation Case Studies","item":"https://productivemachines.co.uk/case-studies.html"}]},{"@type":"CollectionPage","@id":"https://productivemachines.co.uk/case-studies.html#webpage","name":"CNC Optimisation Case Studies | Productive Machines Results","description":"Read CNC optimisation case studies from aerospace and precision manufacturers using SenseNC to cut cycle time, extend tool life and recover machine capacity.","url":"https://productivemachines.co.uk/case-studies.html","isPartOf":{"@id":"https://productivemachines.co.uk/#website"},"publisher":{"@id":"https://productivemachines.co.uk/#organization"},"breadcrumb":{"@id":"https://productivemachines.co.uk/case-studies.html#breadcrumb"}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3" />
+  <link rel="shortcut icon" href="assets/favicon.png?v=3" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png?v=3" />
+  <link rel="apple-touch-icon" href="assets/favicon.png?v=3" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+  <script src="cms-content.js"></script>
+  <script src="api.js?v=2"></script>
+  <script type="text/babel" src="shared.jsx"></script>
+  <script type="text/babel" src="page-template.jsx"></script>
+  <script type="text/babel" src="home-2.jsx"></script>
+  <script type="text/babel" src="home-3.jsx"></script>
+  <script type="text/babel" data-presets="env,react">
+    const data = window.CMS.resources.caseStudies;
+    function App() {
+      return (
+        <ModalProvider>
+          <div id="top">
+            <Nav />
+            <NavSpacer />
+            <main>
+              <PageHero tag={data.tag} headline={data.title} subhead={data.intro} image="https://productivemachines.co.uk/images/AML_entrance.png" accent={data.accent} />
+              <Testimonial />
+              <FeatureGrid
+                tag="By industry"
+                heading="Case studies across sectors"
+                sub="From aerospace primes to motorsport sub-contractors, the same physics, the same outcomes."
+                accent="#189A39"
+                items={[
+                  { icon: 'AE', title: 'Aerospace — AML', text: '53% cycle time reduction on Ti-6Al-4V impellers. Tool life up 38%.' },
+                  { icon: 'MS', title: 'Motorsport — Faber', text: 'Default workflow on every 5-axis job within three months.' },
+                  { icon: 'EN', title: 'Energy — large primes', text: 'Multi-site fleet optimisation across UK energy machining.' },
+                  { icon: 'TT', title: 'Tool & die', text: 'Surface finish improvements unlocked tighter tolerances.' },
+                  { icon: 'MD', title: 'Medical', text: 'First-time-right reduced scrap on orthopaedic implants.' },
+                  { icon: 'AC', title: 'Auto components', text: 'High-volume machining: 21% throughput uplift.' },
+                ]}
+              />
+              <PageCTA heading="Send us your hardest part." sub="An AMRC engineer will benchmark SenseNC on your CAM file — no obligation." accent="#189A39" />
+            </main>
+            <Footer />
+          </div>
+        </ModalProvider>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

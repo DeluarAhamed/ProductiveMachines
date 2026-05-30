@@ -1,0 +1,26 @@
+{
+  "name": "productive-machines-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Productive Machines marketing website with lead capture backend.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "seo": "node scripts/generate-seo.js",
+    "check": "node scripts/check-site.js",
+    "cms:seed": "node scripts/sanity-export-seed.js",
+    "studio:install": "npm --prefix studio install",
+    "studio:dev": "npm --prefix studio run dev",
+    "studio:build": "npm --prefix studio run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^8.0.9"
+  }
+}

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book a Demo — Productive Machines</title>
+  <meta name="description" content="Request a personalised SenseNC demo. We'll come back with a slot that fits your team's diary." />
+  
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://productivemachines.co.uk/book-demo.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="Productive Machines" />
+  <meta property="og:title" content="Book a Demo — Productive Machines" />
+  <meta property="og:description" content="Request a personalised SenseNC demo. We'll come back with a slot that fits your team's diary." />
+  <meta property="og:url" content="https://productivemachines.co.uk/book-demo.html" />
+  <meta property="og:image" content="https://productivemachines.co.uk/assets/og-productive-machines.png" />
+  <meta property="og:image:alt" content="Productive Machines CNC optimisation software" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Book a Demo — Productive Machines" />
+  <meta name="twitter:description" content="Request a personalised SenseNC demo. We'll come back with a slot that fits your team's diary." />
+  <meta name="twitter:image" content="https://productivemachines.co.uk/assets/og-productive-machines.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://productivemachines.co.uk/#organization","name":"Productive Machines","url":"https://productivemachines.co.uk","logo":"https://productivemachines.co.uk/assets/favicon.png","foundingDate":"2019","address":{"@type":"PostalAddress","addressLocality":"Rotherham","addressRegion":"South Yorkshire","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/company/productivemachines/","https://www.youtube.com/@productivemachines"]},{"@type":"WebSite","@id":"https://productivemachines.co.uk/#website","url":"https://productivemachines.co.uk","name":"Productive Machines","publisher":{"@id":"https://productivemachines.co.uk/#organization"}},{"@type":"BreadcrumbList","@id":"https://productivemachines.co.uk/book-demo.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://productivemachines.co.uk"},{"@type":"ListItem","position":2,"name":"Book a Demo","item":"https://productivemachines.co.uk/book-demo.html"}]},{"@type":"WebPage","@id":"https://productivemachines.co.uk/book-demo.html#webpage","name":"Book a Demo — Productive Machines","description":"Request a personalised SenseNC demo. We'll come back with a slot that fits your team's diary.","url":"https://productivemachines.co.uk/book-demo.html","isPartOf":{"@id":"https://productivemachines.co.uk/#website"},"publisher":{"@id":"https://productivemachines.co.uk/#organization"},"breadcrumb":{"@id":"https://productivemachines.co.uk/book-demo.html#breadcrumb"}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3" />
+  <link rel="shortcut icon" href="assets/favicon.png?v=3" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon.png?v=3" />
+  <link rel="apple-touch-icon" href="assets/favicon.png?v=3" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+  <script src="api.js?v=2"></script>
+  <script type="text/babel" src="shared.jsx"></script>
+  <script type="text/babel" src="page-template.jsx"></script>
+  <script type="text/babel" data-presets="env,react">
+    function LeadField({ label, placeholder, type='text', textarea, options, required }) {
+      const [focus, setFocus] = React.useState(false);
+      const s = {
+        background: '#fff', border: focus ? '1px solid #2250FC' : '1px solid #EEEEEE', borderRadius: 8,
+        padding: '14px 16px', color: '#000', fontFamily: 'Host Grotesk', fontSize: 16, outline: 'none',
+        transition: 'border-color .2s, box-shadow .2s', width: '100%', resize: 'vertical',
+        boxShadow: focus ? '0 0 0 4px rgba(34,80,252,0.10)' : 'none',
+      };
+      return (
+        <label style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
+          <span style={{ fontSize: 12, letterSpacing: '0.04em', color: '#000', fontWeight: 500 }}>
+            {label}{required && <span style={{ color: '#2250FC' }}> *</span>}
+          </span>
+          {textarea
+            ? <textarea placeholder={placeholder} rows={4} required={required} onFocus={() => setFocus(true)} onBlur={() => setFocus(false)} style={s} />
+            : options
+              ? <select required={required} onFocus={() => setFocus(true)} onBlur={() => setFocus(false)} style={s}><option value="">Select…</option>{options.map(o => <option key={o}>{o}</option>)}</select>
+              : <input type={type} placeholder={placeholder} required={required} onFocus={() => setFocus(true)} onBlur={() => setFocus(false)} style={s} />}
+        </label>
+      );
+    }
+
+    function App() {
+      const [sent, setSent] = React.useState(false);
+      const [error, setError] = React.useState('');
+      const [submitting, setSubmitting] = React.useState(false);
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError('');
+        setSubmitting(true);
+        try {
+          await window.PM.submitLead(e.currentTarget);
+          setSent(true);
+        } catch (err) {
+          setError(err.message);
+        } finally {
+          setSubmitting(false);
+        }
+      };
+      return (
+        <ModalProvider>
+          <div id="top">
+            <Nav />
+            <NavSpacer />
+            <main>
+              <section style={{ background: '#fff', padding: '32px 0 0', position: 'relative', overflow: 'hidden' }}>
+                <div aria-hidden style={{ position: 'absolute', inset: 0,
+                  background: 'radial-gradient(ellipse 40% 50% at 100% 0%, rgba(34,80,252,0.08), transparent 60%)' }} />
+                <div className="container" style={{ position: 'relative', maxWidth: 1240 }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center', padding: '32px 0 64px' }} className="bd-hero">
+                    <div>
+                      <span className="tagline" style={{ color: '#2250FC', fontWeight: 500 }}>Book a demo</span>
+                      <h1 style={{
+                        fontFamily: 'Host Grotesk', fontWeight: 700,
+                        fontSize: 'clamp(36px, 5.4vw, 80px)', lineHeight: 1.02, letterSpacing: '-0.03em',
+                        margin: '14px 0 22px', color: '#000', textAlign: 'left', textWrap: 'balance',
+                      }}>See SenseNC on your real parts.</h1>
+                      <p style={{ fontSize: 19, lineHeight: 1.55, color: '#000', opacity: 0.78, margin: 0, textWrap: 'pretty', maxWidth: 540 }}>
+                        Send us a CAM file, a tool list or just a part description. An AMRC engineer will reach back within one working day with a tailored demo plan.
+                      </p>
+                      <ul style={{ marginTop: 28, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
+                        {[
+                          'Personalised to your machines & materials',
+                          'Live optimisation on your actual program',
+                          'Full physics breakdown — no marketing slides',
+                          'No obligation. One working day response.',
+                        ].map(t => (
+                          <li key={t} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, fontSize: 15, color: '#000', opacity: 0.85 }}>
+                            <Icon.check style={{ width: 16, height: 16, color: '#189A39', marginTop: 3, flexShrink: 0 }} /> {t}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Lead capture form */}
+                    <div style={{
+                      background: '#0a0a0a', color: '#fff', borderRadius: 24, padding: 40,
+                      position: 'relative', overflow: 'hidden',
+                      boxShadow: '0 40px 80px -32px rgba(34,80,252,0.30)',
+                    }}>
+                      <div aria-hidden style={{ position: 'absolute', inset: 0,
+                        background: 'radial-gradient(ellipse 70% 60% at 100% 0%, rgba(34,80,252,0.35), transparent 60%)' }} />
+                      {!sent ? (
+                        <form data-lead-type="demo" onSubmit={handleSubmit} style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: 16 }}>
+                          <input type="text" name="website" tabIndex="-1" autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }} />
+                          <h2 style={{ fontFamily: 'Host Grotesk', fontWeight: 700, fontSize: 26, margin: '0 0 8px', letterSpacing: '-0.02em' }}>Request your demo</h2>
+                          <p style={{ fontSize: 14, opacity: 0.7, margin: '0 0 14px' }}>4 quick fields. We'll come back within one working day.</p>
+
+                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }} className="bd-row">
+                            <FieldDark name="firstName" label="First name" placeholder="Jane" required />
+                            <FieldDark name="lastName" label="Last name" placeholder="Marchetti" required />
+                          </div>
+                          <FieldDark name="email" label="Work email" type="email" placeholder="jane@yourshop.com" required />
+                          <FieldDark name="company" label="Company" placeholder="Marchetti Precision Ltd" required />
+                          <FieldDark name="country" label="Country" required options={['United Kingdom', 'United States', 'Germany', 'France', 'Italy', 'Spain', 'Other']} />
+                          <FieldDark name="message" label="What machines do you run? (optional)" textarea placeholder="DMG Mori NHX5000, Hermle C42U, mostly Ti-6Al-4V..." />
+
+                          {error && <p role="alert" style={{ color: '#FFB4B4', fontSize: 13, margin: 0 }}>{error}</p>}
+                          <button type="submit" disabled={submitting} className="btn btn-primary" style={{ marginTop: 10, justifyContent: 'center', padding: '16px 24px', fontSize: 16, opacity: submitting ? 0.7 : 1 }}>
+                            {submitting ? 'Submitting...' : 'Submit'} <Icon.arrow className="arr" />
+                          </button>
+                          <p style={{ fontSize: 12, opacity: 0.55, margin: '4px 0 0', textAlign: 'center' }}>
+                            By submitting you agree to our <a href="#" style={{ color: '#fff', borderBottom: '1px solid rgba(255,255,255,0.3)' }}>privacy policy</a>.
+                          </p>
+                        </form>
+                      ) : (
+                        <div style={{ position: 'relative', padding: '60px 24px', textAlign: 'center' }}>
+                          <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'rgba(63,253,126,0.18)', color: '#3FFD7E', display: 'inline-grid', placeItems: 'center', marginBottom: 16 }}>
+                            <Icon.check style={{ width: 36, height: 36 }} />
+                          </div>
+                          <h3 style={{ fontFamily: 'Host Grotesk', fontSize: 26, fontWeight: 700, margin: '0 0 12px' }}>Form submitted</h3>
+                          <p style={{ fontSize: 15, opacity: 0.78, margin: '0 0 24px' }}>An AMRC engineer will be in touch within one working day.</p>
+                          <a href="contact.html" className="btn btn-primary" style={{ background: '#fff', color: '#0a0a0a' }}>Or pick a time now <Icon.arrow className="arr" /></a>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <style>{`
+                  @media (max-width: 900px) {
+                    .bd-hero { grid-template-columns: 1fr !important; gap: 32px !important; padding-bottom: 40px !important; }
+                    .bd-row { grid-template-columns: 1fr !important; }
+                  }
+                `}</style>
+              </section>
+            </main>
+            <Footer />
+          </div>
+        </ModalProvider>
+      );
+    }
+
+    function FieldDark({ name, label, placeholder, type='text', textarea, options, required }) {
+      const [focus, setFocus] = React.useState(false);
+      const s = {
+        background: 'rgba(255,255,255,0.06)',
+        border: focus ? '1px solid #3FFD7E' : '1px solid rgba(255,255,255,0.14)',
+        borderRadius: 8, padding: '13px 14px', color: '#fff', fontFamily: 'Host Grotesk', fontSize: 15, outline: 'none',
+        transition: 'border-color .2s', width: '100%', resize: 'vertical',
+      };
+      return (
+        <label style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          <span style={{ fontSize: 11, letterSpacing: '0.16em', textTransform: 'uppercase', opacity: 0.7 }}>
+            {label}{required && <span style={{ color: '#3FFD7E', marginLeft: 4 }}>*</span>}
+          </span>
+          {textarea
+            ? <textarea name={name} placeholder={placeholder} rows={3} required={required} onFocus={() => setFocus(true)} onBlur={() => setFocus(false)} style={s} />
+            : options
+              ? <select name={name} required={required} onFocus={() => setFocus(true)} onBlur={() => setFocus(false)} style={s}><option value="" style={{ background: '#0a0a0a' }}>Select…</option>{options.map(o => <option key={o} style={{ background: '#0a0a0a' }}>{o}</option>)}</select>
+              : <input name={name} type={type} placeholder={placeholder} required={required} onFocus={() => setFocus(true)} onBlur={() => setFocus(false)} style={s} />}
+        </label>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
