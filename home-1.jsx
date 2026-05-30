@@ -64,7 +64,7 @@ function Hero() {
           frameBorder="0"
           style={{
             position: 'absolute',
-            top: '50%', left: '50%',
+            top: '50%', left: '54%',
             transform: 'translate(-50%, -50%)',
             width: 'max(100vw, 177.78vh)',
             height: 'max(56.25vw, 100vh)',
@@ -77,7 +77,15 @@ function Hero() {
       {/* Dark overlay */}
       <div aria-hidden style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.62) 38%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0.34) 100%)',
+        background: 'linear-gradient(90deg, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.92) 42%, rgba(0,0,0,0.34) 70%, rgba(0,0,0,0.34) 100%)',
+      }} />
+      <div aria-hidden style={{
+        position: 'absolute', inset: 0,
+        background: [
+          'radial-gradient(ellipse 46% 58% at 36% 43%, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.46) 38%, transparent 72%)',
+          'radial-gradient(ellipse 28% 36% at 76% 42%, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.82) 44%, transparent 78%)',
+        ].join(', '),
+        pointerEvents: 'none',
       }} />
       <div aria-hidden style={{
         position: 'absolute', inset: 0,
