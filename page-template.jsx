@@ -345,7 +345,7 @@ function TeamShowcase({ members = window.TEAM_MEMBERS || [], accent = '#2250FC' 
           </p>
         </div>
         {visibleGroups.map((group) => (
-          <div className="team-group" key={group}>
+          <div className="team-group" id={`team-${group.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} key={group}>
             <div className="team-group-label">
               <span>{group}</span>
             </div>
@@ -362,12 +362,11 @@ function TeamShowcase({ members = window.TEAM_MEMBERS || [], accent = '#2250FC' 
 }
 
 function TeamMemberCard({ member, index, accent }) {
-  const ref = useReveal();
   const linkedinHref = member.linkedin || 'https://www.linkedin.com/company/productivemachines/';
   return (
-    <article ref={ref} data-reveal className="team-member-card" style={{ transitionDelay: `${Math.min(index, 5) * 55}ms`, '--team-accent': accent }}>
+    <article className="team-member-card" style={{ transitionDelay: `${Math.min(index, 5) * 55}ms`, '--team-accent': accent }}>
       <a className="team-photo-panel" href={linkedinHref} target="_blank" rel="noreferrer" aria-label={`${member.name} on LinkedIn`}>
-        <img src={member.photo} alt={`${member.name}, ${member.role}`} loading="lazy" />
+        <img src={member.photo} alt={`${member.name}, ${member.role}`} loading="eager" />
         <div className="team-hover-panel">
           <p>{member.bio}</p>
           <span>

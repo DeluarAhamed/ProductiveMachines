@@ -1075,6 +1075,100 @@ img, svg { display: block; max-width: 100%; }
   text-align: left;
 }
 
+.hero-grid-refined {
+  display: block !important;
+}
+
+.hero-watch-btn {
+  cursor: pointer;
+}
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 4vw, 56px);
+}
+
+.video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(0,0,0,0.82);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+}
+
+.video-modal-shell {
+  position: relative;
+  width: min(1120px, 100%);
+  color: #fff;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #050505;
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.58);
+}
+
+.video-modal-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 16px 14px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  background: linear-gradient(90deg, rgba(34,80,252,0.28), rgba(0,0,0,0));
+}
+
+.video-modal-topbar span {
+  display: block;
+  margin-bottom: 3px;
+  color: #3FFD7E;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.video-modal-topbar strong {
+  display: block;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.video-modal-topbar button {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.video-modal-topbar svg {
+  width: 18px;
+  height: 18px;
+}
+
+.video-modal-frame {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+
+.video-modal-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .article-toc {
   max-height: calc(100vh - 140px);
   overflow: auto;
@@ -1222,6 +1316,25 @@ img, svg { display: block; max-width: 100%; }
   z-index: 2;
 }
 
+.team-photo-panel img[src*="cristina-sesma"],
+.team-photo-panel img[src*="baris-guzel"],
+.team-photo-panel img[src*="arman-zonuzi"] {
+  width: min(104%, 410px);
+  height: 88%;
+}
+
+.team-photo-panel img[src*="cristina-sesma"] {
+  object-position: bottom center;
+}
+
+.team-photo-panel img[src*="baris-guzel"] {
+  width: min(100%, 390px);
+}
+
+.team-photo-panel img[src*="arman-zonuzi"] {
+  width: min(102%, 400px);
+}
+
 .team-hover-panel {
   position: absolute;
   inset: 0;
@@ -1325,6 +1438,22 @@ img, svg { display: block; max-width: 100%; }
     padding: 22px;
   }
   .team-hover-panel p { font-size: 13px; }
+  .hero-copy {
+    padding-top: 106px !important;
+    padding-bottom: 86px !important;
+  }
+  .hero-actions {
+    gap: 10px !important;
+  }
+  .video-modal {
+    padding: 12px;
+  }
+  .video-modal-shell {
+    border-radius: 16px;
+  }
+  .video-modal-topbar {
+    padding: 12px;
+  }
 }
 
 @media (max-width: 430px) {

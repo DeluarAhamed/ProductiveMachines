@@ -773,7 +773,7 @@ function Footer() {
 // =============================================================
 // Generic page hero (reusable across detail pages)
 // =============================================================
-function PageHero({ tag, headline, subhead, accent = '#2250FC', image, dark = false }) {
+function PageHero({ tag, headline, subhead, accent = '#2250FC', image, dark = false, animated = true }) {
   return (
     <section className="page-hero-premium" style={{
       background: dark ? '#0a0a0a' : '#fff', color: dark ? '#fff' : '#000',
@@ -794,13 +794,22 @@ function PageHero({ tag, headline, subhead, accent = '#2250FC', image, dark = fa
         <div style={{ display: 'grid', gridTemplateColumns: image ? '1.2fr 1fr' : '1fr', gap: 64, alignItems: 'center' }} className="page-hero-grid">
           <div>
             <span className="tagline" style={{ color: accent, fontWeight: 500 }}>{tag}</span>
-            <WordReveal text={headline} as="h1"
-              style={{
+            {animated ? (
+              <WordReveal text={headline} as="h1"
+                style={{
+                  fontFamily: 'var(--font)', fontWeight: 700,
+                  fontSize: 'clamp(36px, 5.4vw, 88px)',
+                  lineHeight: 1.0, letterSpacing: '-0.03em',
+                  margin: '14px 0 22px', textWrap: 'balance',
+                }} />
+            ) : (
+              <h1 style={{
                 fontFamily: 'var(--font)', fontWeight: 700,
                 fontSize: 'clamp(36px, 5.4vw, 88px)',
-                lineHeight: 1.0, letterSpacing: '-0.03em',
+                lineHeight: 1.02, letterSpacing: '-0.03em',
                 margin: '14px 0 22px', textWrap: 'balance',
-              }} />
+              }}>{headline}</h1>
+            )}
             <p style={{ fontSize: 20, lineHeight: 1.5, opacity: dark ? 0.85 : 0.75, margin: 0, maxWidth: 640, textWrap: 'pretty' }}>{subhead}</p>
           </div>
           {image && (

@@ -14,7 +14,9 @@ const YT_ID = 'sAt3MNXX5lM';
 
 function Hero() {
   const [playing, setPlaying] = useStateA(true);
+  const [modalOpen, setModalOpen] = useStateA(false);
   const iframeRef = useRefA(null);
+  const modalIframeRef = useRefA(null);
 
   const toggle = () => {
     const iframe = iframeRef.current;
@@ -25,6 +27,14 @@ function Hero() {
   };
 
   const origin = typeof window !== 'undefined' ? encodeURIComponent(window.location.origin) : '';
+  const embedBase = `https://www.youtube.com/embed/${YT_ID}`;
+  const closeModal = () => {
+    const iframe = modalIframeRef.current;
+    if (iframe) {
+      iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'stopVideo', args: [] }), '*');
+    }
+    setModalOpen(false);
+  };
 
   return (
     <section style={{
@@ -48,7 +58,7 @@ function Hero() {
         <iframe
           ref={iframeRef}
           title="Productive Machines background video"
-          src={`https://www.youtube-nocookie.com/embed/${YT_ID}?autoplay=1&mute=1&loop=1&playlist=${YT_ID}&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&enablejsapi=1&playsinline=1&disablekb=1&start=3&origin=${origin}`}
+          src={`${embedBase}?autoplay=1&mute=1&loop=1&playlist=${YT_ID}&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&enablejsapi=1&playsinline=1&disablekb=1&start=3&origin=${origin}`}
           allow="autoplay; encrypted-media; picture-in-picture"
           allowFullScreen
           frameBorder="0"
@@ -59,6 +69,7 @@ function Hero() {
             width: 'max(100vw, 177.78vh)',
             height: 'max(56.25vw, 100vh)',
             pointerEvents: 'none',
+            opacity: 0.48,
           }}
         />
       </div>
@@ -66,19 +77,20 @@ function Hero() {
       {/* Dark overlay */}
       <div aria-hidden style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(180deg, rgba(0,0,0,0.50) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.80) 100%)',
+        background: 'linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.58) 42%, rgba(0,0,0,0.26) 72%, rgba(0,0,0,0.44) 100%)',
       }} />
       <div aria-hidden style={{
         position: 'absolute', inset: 0,
-        background: 'radial-gradient(ellipse 80% 60% at 50% 50%, transparent 0%, rgba(0,0,0,0.4) 100%)',
+        background: 'linear-gradient(180deg, rgba(0,0,0,0.42) 0%, transparent 36%, rgba(0,0,0,0.84) 100%)',
         pointerEvents: 'none',
       }} />
 
       <div className="container hero-copy" style={{
         position: 'relative', zIndex: 2,
-        paddingTop: 80, paddingBottom: 80,
+        paddingTop: 118, paddingBottom: 104,
         minHeight: 'min(900px, 100vh)',
         display: 'flex', flexDirection: 'column', justifyContent: 'center',
+        alignItems: 'flex-start',
       }}>
 
         {/* Badge */}
@@ -90,7 +102,7 @@ function Hero() {
           border: '1px solid rgba(255,255,255,0.20)',
           fontSize: 13, fontWeight: 500,
           alignSelf: 'flex-start',
-          marginBottom: 36,
+          marginBottom: 28,
           animation: 'fadeUp 0.8s 0.2s both',
         }}>
           <span style={{
@@ -100,44 +112,45 @@ function Hero() {
           AMRC-verified · Trusted by Boeing, Siemens & AMRC
         </div>
 
-        {/* Original Figma layout: 2-column heading | body+CTA */}
-        <div className="hero-grid" style={{
-          display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 80, alignItems: 'flex-end',
-          textAlign: 'left',
-        }}>
-          <WordReveal
-            text="CNC Shops That Run SenseNC Cut 53% Faster. First Time."
-            as="h1"
+        <div className="hero-grid hero-grid-refined" style={{ textAlign: 'left', maxWidth: 820 }}>
+          <h1
             style={{
               fontFamily: 'Host Grotesk',
-              fontWeight: 700,
-              fontSize: 'clamp(40px, 6vw, 84px)',
-              lineHeight: 1.05,
-              letterSpacing: '-0.03em',
+              fontWeight: 720,
+              fontSize: 'clamp(48px, 6.4vw, 92px)',
+              lineHeight: 0.98,
+              letterSpacing: '0',
               color: '#fff',
               margin: 0,
               textWrap: 'balance',
               textAlign: 'left',
+              textShadow: '0 20px 70px rgba(0,0,0,0.38)',
             }}
-          />
+          >
+            CNC shops cut 53% faster. First time.
+          </h1>
 
-          <div style={{ animation: 'fadeUp 0.8s 0.7s both', textAlign: 'left' }}>
+          <div style={{ textAlign: 'left', marginTop: 26, maxWidth: 620 }}>
             <p style={{
-              fontSize: 18,
-              lineHeight: 1.6,
+              fontSize: 20,
+              lineHeight: 1.58,
               color: 'rgba(255,255,255,0.92)',
-              maxWidth: 520,
               textWrap: 'pretty',
               margin: 0,
+              textShadow: '0 10px 34px rgba(0,0,0,0.45)',
             }}>
-              CNC milling software that cuts cycle time by 53% and boosts productivity by 110%. Proven by Boeing, Siemens, and leading manufacturers across the UK.
+              SenseNC turns AMRC machining physics into CAM-ready optimisation, reducing cycle time, chatter, tooling cost, and trial cuts on real production parts.
             </p>
-            <div style={{ display: 'flex', gap: 14, marginTop: 32, flexWrap: 'wrap' }}>
+            <div className="hero-actions" style={{ display: 'flex', gap: 14, marginTop: 34, flexWrap: 'wrap' }}>
               <a href="book-demo.html" className="btn btn-primary" style={{ padding: '14px 24px', fontSize: 16 }}>
                 Book demo <Icon.arrow className="arr" />
               </a>
-              <a href="products.html" className="btn btn-secondary on-dark" style={{ padding: '14px 24px', fontSize: 16 }}>
-                Learn more
+              <button type="button" onClick={() => setModalOpen(true)} className="btn btn-secondary on-dark hero-watch-btn" style={{ padding: '14px 22px', fontSize: 16 }}>
+                <Icon.play style={{ width: 15, height: 15, marginLeft: 1 }} />
+                Watch video
+              </button>
+              <a href="products.html" className="btn btn-secondary on-dark" style={{ padding: '14px 22px', fontSize: 16 }}>
+                Explore products
               </a>
             </div>
           </div>
@@ -190,6 +203,33 @@ function Hero() {
           </div>
         </div>
       </div>
+
+      {modalOpen && (
+        <div className="video-modal" role="dialog" aria-modal="true" aria-label="Productive Machines video">
+          <button type="button" className="video-modal-backdrop" aria-label="Close video" onClick={closeModal} />
+          <div className="video-modal-shell">
+            <div className="video-modal-topbar">
+              <div>
+                <span>Productive Machines</span>
+                <strong>Watch with sound</strong>
+              </div>
+              <button type="button" onClick={closeModal} aria-label="Close video">
+                <Icon.close />
+              </button>
+            </div>
+            <div className="video-modal-frame">
+              <iframe
+                ref={modalIframeRef}
+                title="Productive Machines video"
+                src={`${embedBase}?autoplay=1&mute=0&controls=1&modestbranding=1&rel=0&enablejsapi=1&playsinline=1&origin=${origin}`}
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
+                frameBorder="0"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       <style>{`
         @keyframes scrollLine { 0% { transform: translateY(-100%); } 100% { transform: translateY(200%); } }
