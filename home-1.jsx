@@ -69,7 +69,7 @@ function Hero() {
             width: 'max(100vw, 177.78vh)',
             height: 'max(56.25vw, 100vh)',
             pointerEvents: 'none',
-            opacity: 0.48,
+            opacity: 0.62,
           }}
         />
       </div>
@@ -77,7 +77,7 @@ function Hero() {
       {/* Dark overlay */}
       <div aria-hidden style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.58) 42%, rgba(0,0,0,0.26) 72%, rgba(0,0,0,0.44) 100%)',
+        background: 'linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.62) 38%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0.34) 100%)',
       }} />
       <div aria-hidden style={{
         position: 'absolute', inset: 0,
@@ -112,48 +112,62 @@ function Hero() {
           AMRC-verified · Trusted by Boeing, Siemens & AMRC
         </div>
 
-        <div className="hero-grid hero-grid-refined" style={{ textAlign: 'left', maxWidth: 820 }}>
-          <h1
-            style={{
-              fontFamily: 'Host Grotesk',
-              fontWeight: 720,
-              fontSize: 'clamp(48px, 6.4vw, 92px)',
-              lineHeight: 0.98,
-              letterSpacing: '0',
-              color: '#fff',
-              margin: 0,
-              textWrap: 'balance',
-              textAlign: 'left',
-              textShadow: '0 20px 70px rgba(0,0,0,0.38)',
-            }}
-          >
-            CNC shops cut 53% faster. First time.
-          </h1>
+        <div className="hero-grid hero-grid-hybrid" style={{ textAlign: 'left' }}>
+          <div className="hero-message">
+            <h1
+              style={{
+                fontFamily: 'Host Grotesk',
+                fontWeight: 720,
+                fontSize: 'clamp(48px, 6.4vw, 92px)',
+                lineHeight: 0.98,
+                letterSpacing: '0',
+                color: '#fff',
+                margin: 0,
+                textWrap: 'balance',
+                textAlign: 'left',
+                textShadow: '0 20px 70px rgba(0,0,0,0.38)',
+              }}
+            >
+              CNC shops cut 53% faster. First time.
+            </h1>
 
-          <div style={{ textAlign: 'left', marginTop: 26, maxWidth: 620 }}>
-            <p style={{
-              fontSize: 20,
-              lineHeight: 1.58,
-              color: 'rgba(255,255,255,0.92)',
-              textWrap: 'pretty',
-              margin: 0,
-              textShadow: '0 10px 34px rgba(0,0,0,0.45)',
-            }}>
-              SenseNC turns AMRC machining physics into CAM-ready optimisation, reducing cycle time, chatter, tooling cost, and trial cuts on real production parts.
-            </p>
-            <div className="hero-actions" style={{ display: 'flex', gap: 14, marginTop: 34, flexWrap: 'wrap' }}>
-              <a href="book-demo.html" className="btn btn-primary" style={{ padding: '14px 24px', fontSize: 16 }}>
-                Book demo <Icon.arrow className="arr" />
-              </a>
-              <button type="button" onClick={() => setModalOpen(true)} className="btn btn-secondary on-dark hero-watch-btn" style={{ padding: '14px 22px', fontSize: 16 }}>
-                <Icon.play style={{ width: 15, height: 15, marginLeft: 1 }} />
-                Watch video
-              </button>
-              <a href="products.html" className="btn btn-secondary on-dark" style={{ padding: '14px 22px', fontSize: 16 }}>
-                Explore products
-              </a>
+            <div style={{ textAlign: 'left', marginTop: 26, maxWidth: 620 }}>
+              <p style={{
+                fontSize: 20,
+                lineHeight: 1.58,
+                color: 'rgba(255,255,255,0.92)',
+                textWrap: 'pretty',
+                margin: 0,
+                textShadow: '0 10px 34px rgba(0,0,0,0.45)',
+              }}>
+                SenseNC turns AMRC machining physics into CAM-ready optimisation, reducing cycle time, chatter, tooling cost, and trial cuts on real production parts.
+              </p>
+              <div className="hero-actions" style={{ display: 'flex', gap: 14, marginTop: 34, flexWrap: 'wrap' }}>
+                <a href="book-demo.html" className="btn btn-primary" style={{ padding: '14px 24px', fontSize: 16 }}>
+                  Book demo <Icon.arrow className="arr" />
+                </a>
+                <button type="button" onClick={() => setModalOpen(true)} className="btn btn-secondary on-dark hero-watch-btn" style={{ padding: '14px 22px', fontSize: 16 }}>
+                  <Icon.play style={{ width: 15, height: 15, marginLeft: 1 }} />
+                  Watch video
+                </button>
+                <a href="products.html" className="btn btn-secondary on-dark" style={{ padding: '14px 22px', fontSize: 16 }}>
+                  Explore products
+                </a>
+              </div>
             </div>
           </div>
+          <aside className="hero-proof-card" aria-label="Verified customer results">
+            <div className="hero-proof-top">
+              <span>Verified outcomes</span>
+              <strong>AMRC methodology</strong>
+            </div>
+            <div className="hero-proof-metrics">
+              <div><strong>+110%</strong><span>productivity uplift</span></div>
+              <div><strong>-53%</strong><span>cycle time</span></div>
+              <div><strong>-11%</strong><span>tooling cost</span></div>
+            </div>
+            <a href="case-studies.html">Read case studies <Icon.arrow /></a>
+          </aside>
         </div>
 
         {/* Video controls — bottom right */}

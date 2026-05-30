@@ -1075,12 +1075,99 @@ img, svg { display: block; max-width: 100%; }
   text-align: left;
 }
 
-.hero-grid-refined {
-  display: block !important;
+.hero-grid-hybrid {
+  width: 100%;
+  display: grid !important;
+  grid-template-columns: minmax(0, 760px) minmax(280px, 390px);
+  align-items: end;
+  justify-content: space-between;
+  gap: clamp(42px, 7vw, 110px);
+}
+
+.hero-message {
+  min-width: 0;
 }
 
 .hero-watch-btn {
   cursor: pointer;
+}
+
+.hero-proof-card {
+  align-self: end;
+  margin-bottom: clamp(10px, 3vh, 36px);
+  padding: 22px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.065));
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 30px 80px -38px rgba(0,0,0,0.78);
+  backdrop-filter: blur(18px);
+}
+
+.hero-proof-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.16);
+}
+
+.hero-proof-top span {
+  color: #3FFD7E;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-proof-top strong {
+  color: rgba(255,255,255,0.72);
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.hero-proof-metrics {
+  display: grid;
+  gap: 14px;
+  padding: 18px 0;
+}
+
+.hero-proof-metrics div {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.hero-proof-metrics strong {
+  color: #fff;
+  font-family: var(--font);
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 0.95;
+  font-weight: 780;
+  letter-spacing: 0;
+}
+
+.hero-proof-metrics span {
+  color: rgba(255,255,255,0.76);
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.hero-proof-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 720;
+}
+
+.hero-proof-card a svg {
+  width: 15px;
+  height: 15px;
 }
 
 .video-modal {
@@ -1444,6 +1531,9 @@ img, svg { display: block; max-width: 100%; }
   }
   .hero-actions {
     gap: 10px !important;
+  }
+  .hero-proof-card {
+    display: none;
   }
   .video-modal {
     padding: 12px;
