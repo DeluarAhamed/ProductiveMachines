@@ -10,6 +10,7 @@ const context = {window: {}}
 vm.createContext(context)
 vm.runInContext(fs.readFileSync(path.join(root, 'cms-blog.js'), 'utf8'), context)
 vm.runInContext(fs.readFileSync(path.join(root, 'cms-content.js'), 'utf8'), context)
+vm.runInContext(fs.readFileSync(path.join(root, 'team-data.js'), 'utf8'), context)
 
 const docs = []
 const now = new Date().toISOString()
@@ -96,6 +97,24 @@ for (const group of Object.values(context.window.CMS?.about || {})) {
 
 for (const group of Object.values(context.window.CMS?.partners || {})) {
   docs.push(pageDoc('partnerPage', group, 'partners'))
+}
+
+for (const [index, member] of (context.window.TEAM_MEMBERS || []).entries()) {
+  docs.push({
+    _id: publicId('teamMember', member.slug || member.name),
+    _type: 'teamMember',
+    name: member.name,
+    slug: {_type: 'slug', current: member.slug || slugify(member.name)},
+    role: member.role,
+    group: member.group,
+    order: index + 1,
+    legacyPhotoUrl: member.photo,
+    linkedin: member.linkedin || undefined,
+    bio: member.bio,
+    isFeatured: true,
+    _createdAt: now,
+    _updatedAt: now,
+  })
 }
 
 docs.push({

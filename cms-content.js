@@ -162,8 +162,8 @@ window.CMS = {
     team: {
       tag: 'The team',
       accent: '#2250FC',
-      title: 'Engineers, machinists, researchers.',
-      intro: 'A team of 24 — half from AMRC, half from industry. Every product decision is made by someone who has spent time on a shop floor.',
+      title: 'Meet the team building autonomous machining.',
+      intro: 'Researchers, software developers, machinists and commercial operators turning AMRC-grade machining intelligence into practical shop-floor results.',
       sections: [
         { id: 'leadership', title: 'Leadership',
           body: `<p><strong>Dr Cristina Sesma — Founder & CEO</strong>. PhD in machine tool dynamics, AMRC Sheffield. Previously led research engagement at AMRC.</p>

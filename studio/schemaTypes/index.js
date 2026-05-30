@@ -6,6 +6,7 @@ import {partnerPage} from './documents/partnerPage.js'
 import {productPage} from './documents/productPage.js'
 import {resourcePage} from './documents/resourcePage.js'
 import {siteSettings} from './documents/siteSettings.js'
+import {teamMember} from './documents/teamMember.js'
 import {blockContent} from './objects/blockContent.js'
 import {cta} from './objects/cta.js'
 import {metric} from './objects/metric.js'
@@ -26,4 +27,5 @@ export const schemaTypes = [
   productPage,
   resourcePage,
   siteSettings,
+  teamMember,
 ]

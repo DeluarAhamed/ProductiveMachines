@@ -34,6 +34,7 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
   <script src="cms-content.js"></script>
+  <script src="team-data.js"></script>
   <script src="api.js?v=2"></script>
   <script type="text/babel" src="shared.jsx"></script>
   <script type="text/babel" src="page-template.jsx"></script>
@@ -46,7 +47,8 @@
             <Nav />
             <NavSpacer />
             <main>
-              <ArticleLayout {...data} />
+              <PageHero tag={data.tag} headline="Meet the team building autonomous machining." subhead={data.intro} accent={data.accent} />
+              <TeamShowcase accent={data.accent} />
               <PageCTA heading="Ready to see it on your parts?" sub="Send us a tool list or a CAM file. We'll show you exactly what SenseNC does on your jobs." primary={{label:'Book a demo', href:'book-demo.html'}} secondary={{label:'See products', href:'products.html'}} accent={data.accent} />
             </main>
             <Footer />

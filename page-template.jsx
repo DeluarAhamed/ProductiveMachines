@@ -327,4 +327,61 @@ function LeadCaptureBand({ heading, sub, fileLabel = 'Get the e-book', accent = 
   );
 }
 
-Object.assign(window, { ArticleLayout, StatBand, PageCTA, FeatureGrid, LeadCaptureBand });
+// =============================================================
+// Team showcase
+// =============================================================
+function TeamShowcase({ members = window.TEAM_MEMBERS || [], accent = '#2250FC' }) {
+  const groups = ['Leadership', 'Commercial', 'Board', 'Engineering', 'People'];
+  const visibleGroups = groups.filter((group) => members.some((member) => member.group === group));
+  return (
+    <section className="team-showcase">
+      <div className="container">
+        <div className="team-showcase-head">
+          <span className="tagline" style={{ color: accent }}>Our team</span>
+          <h2>People behind the physics.</h2>
+          <p>
+            The Productive Machines team brings together machining dynamics researchers, software builders,
+            commercial operators, and customer specialists from AMRC and industry.
+          </p>
+        </div>
+        {visibleGroups.map((group) => (
+          <div className="team-group" key={group}>
+            <div className="team-group-label">
+              <span>{group}</span>
+            </div>
+            <div className="team-grid-premium">
+              {members.filter((member) => member.group === group).map((member, index) => (
+                <TeamMemberCard key={member.slug} member={member} index={index} accent={accent} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function TeamMemberCard({ member, index, accent }) {
+  const ref = useReveal();
+  const linkedinHref = member.linkedin || 'https://www.linkedin.com/company/productivemachines/';
+  return (
+    <article ref={ref} data-reveal className="team-member-card" style={{ transitionDelay: `${Math.min(index, 5) * 55}ms`, '--team-accent': accent }}>
+      <a className="team-photo-panel" href={linkedinHref} target="_blank" rel="noreferrer" aria-label={`${member.name} on LinkedIn`}>
+        <img src={member.photo} alt={`${member.name}, ${member.role}`} loading="lazy" />
+        <div className="team-hover-panel">
+          <p>{member.bio}</p>
+          <span>
+            <Icon.li />
+            {member.linkedin ? 'View LinkedIn' : 'Company LinkedIn'}
+          </span>
+        </div>
+      </a>
+      <div className="team-card-copy">
+        <h3>{member.name}</h3>
+        <p>{member.role}</p>
+      </div>
+    </article>
+  );
+}
+
+Object.assign(window, { ArticleLayout, StatBand, PageCTA, FeatureGrid, LeadCaptureBand, TeamShowcase });
