@@ -11,3 +11,5 @@ studio/.sanity/
 .env.local
 .vercel/
 npm-debug.log*
+
+.vercel
