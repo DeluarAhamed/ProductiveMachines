@@ -882,15 +882,12 @@ img, svg { display: block; max-width: 100%; }
     padding: 24px !important;
     border-radius: 16px !important;
   }
-  .hero-video-frame iframe {
+  .hero-video-frame iframe,
+  .hero-background-video {
     width: max(132vw, 234.67vh) !important;
     height: max(74.25vw, 132vh) !important;
   }
-  .hero-video-frame {
-    display: none !important;
-  }
   .hero-video-poster {
-    opacity: 1 !important;
     background-position: center !important;
   }
   .logo-tile {
@@ -1073,9 +1070,11 @@ img, svg { display: block; max-width: 100%; }
   max-height: 86px !important;
 }
 
-.hero-video-frame iframe {
+.hero-video-frame iframe,
+.hero-background-video {
   min-width: 100vw;
   min-height: 100vh;
+  object-fit: cover;
 }
 
 .hero-video-poster {

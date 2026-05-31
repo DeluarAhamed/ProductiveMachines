@@ -4,6 +4,7 @@ qa/
 _check/
 scrap/
 uploads/
+tools/
 studio/node_modules/
 studio/dist/
 studio/.sanity/

@@ -16,37 +16,22 @@ function Hero() {
   const [playing, setPlaying] = useStateA(true);
   const [modalOpen, setModalOpen] = useStateA(false);
   const [videoReady, setVideoReady] = useStateA(false);
-  const iframeRef = useRefA(null);
+  const videoRef = useRefA(null);
   const modalIframeRef = useRefA(null);
 
-  useEffectA(() => {
-    const handlePlayerMessage = (event) => {
-      if (!String(event.origin || '').includes('youtube')) return;
-
-      let data = event.data;
-      if (typeof data === 'string') {
-        try {
-          data = JSON.parse(data);
-        } catch {
-          return;
-        }
-      }
-
-      if (data?.event === 'onReady' || data?.info?.playerState === 1) {
-        setVideoReady(true);
-      }
-    };
-
-    window.addEventListener('message', handlePlayerMessage);
-    return () => window.removeEventListener('message', handlePlayerMessage);
-  }, []);
+  const revealVideo = () => {
+    window.setTimeout(() => setVideoReady(true), 900);
+  };
 
   const toggle = () => {
-    const iframe = iframeRef.current;
-    if (!iframe) return;
-    const cmd = playing ? 'pauseVideo' : 'playVideo';
-    iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: cmd, args: [] }), '*');
-    setPlaying(!playing);
+    const video = videoRef.current;
+    if (!video) return;
+    if (playing) {
+      video.pause();
+      setPlaying(false);
+      return;
+    }
+    video.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
   };
 
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
@@ -80,13 +65,18 @@ function Hero() {
 
       {/* YT iframe — sized to cover */}
       <div className="hero-video-frame" aria-hidden style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-        <iframe
-          ref={iframeRef}
+        <video
+          ref={videoRef}
+          className="hero-background-video"
           title="Productive Machines background video"
-          src={`${embedBase}?autoplay=1&mute=1&loop=1&playlist=${YT_ID}&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&enablejsapi=1&playsinline=1&disablekb=1&start=3&origin=${origin}`}
-          allow="autoplay; encrypted-media; picture-in-picture"
-          allowFullScreen
-          frameBorder="0"
+          src="assets/videos/hero-youtube.mp4"
+          poster="assets/site-media/eliminate.webp"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          onCanPlay={revealVideo}
           style={{
             position: 'absolute',
             top: '50%', left: '50%',
