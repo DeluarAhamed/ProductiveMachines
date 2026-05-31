@@ -665,10 +665,10 @@ function MegaPanel({ menu }) {
 
 // Reserve top padding for fixed nav
 function NavSpacer() {
-  return <div style={{ height: 'var(--nav-h, 116px)' }} className="nav-spacer">
+  return <div className="nav-spacer">
     <style>{`
       .nav-spacer { height: 116px; }
-      @media (max-width: 800px) { .nav-spacer { height: 76px; } }
+      @media (max-width: 800px) { .nav-spacer { height: 67px; } }
     `}</style>
   </div>;
 }
