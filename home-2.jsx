@@ -154,13 +154,24 @@ function StoryCard({ n, tag, tagColor, bg, color, eyebrow, heading, body, stats,
           alignItems: 'center', minHeight: 416,
         }}>
           <div>
-            <div className="story-card-kicker" style={{ display: 'flex', alignItems: 'baseline', gap: 16, marginBottom: 28 }}>
-              <span style={{
-                padding: '6px 14px', borderRadius: 999,
-                background: tagColor, color: '#fff',
-                fontSize: 12, fontWeight: 500,
-                letterSpacing: '0.04em',
-              }}>{n} · {tag}</span>
+            <div className="story-card-kicker" style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 28 }}>
+              <span className="story-card-step-number" aria-label={`Step ${n}`} style={{
+                minWidth: 36, height: 28, padding: '0 10px',
+                borderRadius: 999,
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                border: `1px solid ${bg === '#fff' ? 'rgba(0,0,0,0.18)' : 'rgba(255,255,255,0.24)'}`,
+                background: bg === '#fff' ? 'rgba(0,0,0,0.035)' : 'rgba(255,255,255,0.09)',
+                color: bg === '#fff' ? 'rgba(0,0,0,0.68)' : 'rgba(255,255,255,0.78)',
+                fontFamily: 'var(--mono)', fontSize: 11, fontWeight: 700,
+                letterSpacing: '0.08em',
+              }}>{n}</span>
+              <span className="story-card-step-label" style={{
+                padding: '6px 12px', borderRadius: 999,
+                background: `${tagColor}20`, color: tagColor,
+                border: `1px solid ${tagColor}38`,
+                fontSize: 12, fontWeight: 650,
+                letterSpacing: '0.035em',
+              }}>{tag}</span>
               <span style={{ fontSize: 13, opacity: 0.55 }}>{eyebrow}</span>
             </div>
 

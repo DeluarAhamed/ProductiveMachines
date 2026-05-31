@@ -937,6 +937,21 @@ img, svg { display: block; max-width: 100%; }
     font-size: clamp(20px, 6.4vw, 27px) !important;
     margin-bottom: 9px !important;
   }
+  .story-card-kicker {
+    gap: 8px !important;
+    margin-bottom: 10px !important;
+    flex-wrap: wrap !important;
+  }
+  .story-card-step-number {
+    min-width: 32px !important;
+    height: 24px !important;
+    padding: 0 8px !important;
+    font-size: 9.5px !important;
+  }
+  .story-card-step-label {
+    padding: 5px 9px !important;
+    font-size: 10px !important;
+  }
   .story-card-body {
     font-size: 13px !important;
     line-height: 1.34 !important;
@@ -1178,6 +1193,14 @@ img, svg { display: block; max-width: 100%; }
 .hero-proof-card a svg {
   width: 15px;
   height: 15px;
+}
+
+.story-card-step-number {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.story-card-step-label {
+  white-space: nowrap;
 }
 
 .video-modal {
