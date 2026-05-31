@@ -883,8 +883,15 @@ img, svg { display: block; max-width: 100%; }
     border-radius: 16px !important;
   }
   .hero-video-frame iframe {
-    width: 177.78vh !important;
-    height: 100vh !important;
+    width: max(132vw, 234.67vh) !important;
+    height: max(74.25vw, 132vh) !important;
+  }
+  .hero-video-frame {
+    display: none !important;
+  }
+  .hero-video-poster {
+    opacity: 1 !important;
+    background-position: center !important;
   }
   .logo-tile {
     width: 148px !important;
@@ -1069,6 +1076,10 @@ img, svg { display: block; max-width: 100%; }
 .hero-video-frame iframe {
   min-width: 100vw;
   min-height: 100vh;
+}
+
+.hero-video-poster {
+  will-change: opacity;
 }
 
 .hero-copy {

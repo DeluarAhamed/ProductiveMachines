@@ -7,7 +7,7 @@ window.BLOG_POSTS = {
     author: 'Productive Machines',
     title: 'Sarah Champion MP Visits to Witness Cutting-Edge Manufacturing Innovation',
     intro: 'Sarah Champion, Member of Parliament for Rotherham, visited Productive Machines to learn about the company\'s transformative impact on UK manufacturing and experience SenseNC™ firsthand.',
-    hero: 'https://productivemachines.co.uk/images/MP-Visit-July-2025-Manufacturing-Innovation.jpg',
+    hero: 'assets/site-media/mp-visit-manufacturing-innovation.jpg',
     body: `<p>On a bright July morning, Sarah Champion MP joined the Productive Machines team at our headquarters in the Advanced Manufacturing Park, Rotherham. The visit reflected her continued commitment to championing innovation, advanced manufacturing and high-skilled jobs across South Yorkshire.</p>
 
 <h3>Cutting-edge software, in plain sight</h3>
@@ -35,7 +35,7 @@ window.BLOG_POSTS = {
     author: 'Dr Cristina Sesma-Forcada',
     title: 'Innovations in Aerospace Manufacturing — Key Takeaways from MIC 2025',
     intro: 'The 24th Machining Innovations Conference highlighted aerospace manufacturing advancements in sustainability, digitalisation, and AI, featuring expert talks, live demos, and exhibitions.',
-    hero: 'https://productivemachines.co.uk/images/blog/mic-2025.png',
+    hero: 'assets/site-media/mic-2025.png',
     body: `<p>The Machining Innovations Conference is the most important annual gathering for the machining research community. MIC 2025, held in Hannover in October, was no exception — and this year the centre of gravity shifted unmistakably towards <strong>real-time intelligence on the shop floor</strong>.</p>
 
 <h3>Three themes dominated</h3>
@@ -71,7 +71,7 @@ window.BLOG_POSTS = {
     author: 'Productive Machines',
     title: 'AML\'s Success with Productive Machines',
     intro: 'By maximising the efficiency of machine tools, Productive Machines empowers machinists to achieve superior quality parts faster and with greater precision.',
-    hero: 'https://productivemachines.co.uk/images/AML_entrance.png',
+    hero: 'assets/site-media/aml-entrance.png',
     body: `<p>AML Aerospace, a precision-machining supplier based in the UK, faced a familiar challenge: cycle times on titanium aerospace components were eating into margins, and chatter vibrations were limiting how aggressively their programmers could push.</p>
 
 <h3>The starting point</h3>
@@ -111,7 +111,7 @@ window.CASE_STUDIES = {
     logo: 'assets/aml-logo.svg',
     headline: 'AML cut titanium impeller cycle time by 53% — and it stuck.',
     intro: 'A four-week pilot turned into AML\'s default workflow on every 5-axis job. Here\'s exactly what changed, in their numbers.',
-    hero: 'https://productivemachines.co.uk/images/AML_entrance.png',
+    hero: 'assets/site-media/aml-entrance.png',
     stats: [
       { num: '−53%', label: 'Cycle time' },
       { num: '+38%', label: 'Tool life' },
@@ -136,7 +136,7 @@ window.CASE_STUDIES = {
   faber: {
     company: 'Faber Präzision GmbH',
     sector: 'Industrial precision',
-    logo: 'https://productivemachines.co.uk/images/clients/15.png',
+    logo: 'assets/partner-logos/sandvik.png',
     headline: 'Faber Präzision made SenseNC their default in 3 weeks.',
     intro: 'A German precision shop hit a 53% cycle-time reduction on a Ti impeller in week three. Three months in, it\'s the default workflow on every 5-axis job.',
     hero: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1600&q=80',
@@ -162,7 +162,7 @@ window.CASE_STUDIES = {
   vanguard: {
     company: 'Vanguard Precision Tooling',
     sector: 'Aerospace / tooling',
-    logo: 'https://productivemachines.co.uk/images/clients/14.png',
+    logo: 'assets/partner-logos/amrc.png',
     headline: 'AMRC validation was the green light for Vanguard.',
     intro: 'SenseNC sits alongside Mastercam — programmers don\'t even change tools. It just makes every job faster.',
     hero: 'https://images.unsplash.com/photo-1581094488379-6f9e9f72b67d?w=1600&q=80',

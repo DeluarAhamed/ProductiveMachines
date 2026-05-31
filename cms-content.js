@@ -9,7 +9,7 @@ window.CMS = {
       accent: '#F59E0B',
       title: 'TapStarter — instant spindle speeds, no CAM required.',
       intro: 'The fastest way to optimal feeds and speeds. Upload a tool combo. Get a safe operating range in seconds. Perfect for shops without a CAM seat — or as a sanity check before any job.',
-      hero: 'https://productivemachines.co.uk/images/tap_starter_home.webp',
+      hero: 'assets/site-media/tap-starter-home.webp',
       meta: [['Tier', 'Entry'], ['Pricing', 'From £49 / month'], ['Format', 'Web app'], ['Requires CAM', 'No']],
       sections: [
         { id: 'overview', title: 'What is TapStarter?',
@@ -69,7 +69,7 @@ window.CMS = {
       accent: '#189A39',
       title: 'SenseNC Finesse — digital twin. Zero chatter.',
       intro: 'The complete SenseNC platform — full toolpath optimisation, real-time chatter elimination, in-process monitoring. Used by Boeing, Siemens and AML Aerospace.',
-      hero: 'https://productivemachines.co.uk/images/Eliminate.webp',
+      hero: 'assets/site-media/eliminate.webp',
       meta: [['Tier', 'Enterprise'], ['Pricing', 'Custom'], ['Format', 'Full platform + service'], ['Dedicated engineer', 'Yes']],
       sections: [
         { id: 'overview', title: 'The complete platform',
@@ -101,7 +101,7 @@ window.CMS = {
       accent: '#2250FC',
       title: 'From AMRC bench to 200+ shop floors.',
       intro: 'A decade of chatter-vibration research. A spin-out in 2019. A platform now running across aerospace, motorsport and precision manufacturing worldwide.',
-      hero: 'https://productivemachines.co.uk/images/MP-Visit-July-2025-Manufacturing-Innovation.jpg',
+      hero: 'assets/site-media/mp-visit-manufacturing-innovation.jpg',
       meta: [['Founded', '2019'], ['HQ', 'Rotherham, UK'], ['Origin', 'AMRC Sheffield'], ['Team', '24 engineers']],
       sections: [
         { id: 'origin', title: 'It started at AMRC',
@@ -113,7 +113,7 @@ window.CMS = {
 <h3>2023 — Award recognition</h3><p>UKISF Manufacturing Innovation award. 50+ live machines across the UK and EU.</p>
 <h3>2025 — NX integration</h3><p>Siemens publishes the official NX CAM integration. Over 200 deployments worldwide.</p>` },
         { id: 'now', title: 'Where we are now',
-          image: 'https://productivemachines.co.uk/images/AML_entrance.png',
+          image: 'assets/site-media/aml-entrance.png',
           body: `<p>Today, Productive Machines runs on more than 200 CNC machines across aerospace, motorsport, energy and medical manufacturing. The team has grown from four founders to 24 engineers, machinists and customer-success specialists. We're still based at the Advanced Manufacturing Park in Rotherham, less than a mile from the AMRC labs where the research started.</p>` },
       ],
     },
@@ -123,7 +123,7 @@ window.CMS = {
       accent: '#189A39',
       title: 'Best part. Faster. First time.',
       intro: 'Every CNC operator should have an expert on their shoulder — telling them exactly how hard to push, every cut, every job.',
-      hero: 'https://productivemachines.co.uk/images/Reduce_cycle_times.webp',
+      hero: 'assets/site-media/reduce-cycle-times.webp',
       sections: [
         { id: 'promise', title: 'Our promise',
           body: `<p>We make one promise to every customer: <strong>the best part, faster, first time</strong>. Every brand decision — colour, word, component, animation — should reinforce this promise. If it doesn't serve the machine shop, it doesn't belong.</p>

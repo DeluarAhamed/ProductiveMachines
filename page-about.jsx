@@ -44,7 +44,7 @@ function AboutHero() {
             aspectRatio: '4/3', background: '#2250FC',
             position: 'relative',
           }}>
-            <img src="https://productivemachines.co.uk/images/MP-Visit-July-2025-Manufacturing-Innovation.jpg"
+            <img src="assets/site-media/mp-visit-manufacturing-innovation.jpg"
               alt="Productive Machines team"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>

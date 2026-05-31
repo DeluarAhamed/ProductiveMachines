@@ -15,8 +15,31 @@ const YT_ID = 'sAt3MNXX5lM';
 function Hero() {
   const [playing, setPlaying] = useStateA(true);
   const [modalOpen, setModalOpen] = useStateA(false);
+  const [videoReady, setVideoReady] = useStateA(false);
   const iframeRef = useRefA(null);
   const modalIframeRef = useRefA(null);
+
+  useEffectA(() => {
+    const handlePlayerMessage = (event) => {
+      if (!String(event.origin || '').includes('youtube')) return;
+
+      let data = event.data;
+      if (typeof data === 'string') {
+        try {
+          data = JSON.parse(data);
+        } catch {
+          return;
+        }
+      }
+
+      if (data?.event === 'onReady' || data?.info?.playerState === 1) {
+        setVideoReady(true);
+      }
+    };
+
+    window.addEventListener('message', handlePlayerMessage);
+    return () => window.removeEventListener('message', handlePlayerMessage);
+  }, []);
 
   const toggle = () => {
     const iframe = iframeRef.current;
@@ -26,7 +49,7 @@ function Hero() {
     setPlaying(!playing);
   };
 
-  const origin = typeof window !== 'undefined' ? encodeURIComponent(window.location.origin) : '';
+  const origin = typeof window !== 'undefined' ? window.location.origin : '';
   const embedBase = `https://www.youtube.com/embed/${YT_ID}`;
   const closeModal = () => {
     const iframe = modalIframeRef.current;
@@ -46,11 +69,13 @@ function Hero() {
     }} data-screen-label="01 Hero">
 
       {/* Fallback poster (visible while YT loads or if blocked) */}
-      <div aria-hidden style={{
+      <div className="hero-video-poster" aria-hidden style={{
         position: 'absolute', inset: 0,
-        backgroundImage: `url(https://i.ytimg.com/vi/${YT_ID}/maxresdefault.jpg)`,
+        backgroundImage: 'url(assets/site-media/eliminate.webp)',
         backgroundSize: 'cover', backgroundPosition: 'center',
         filter: 'saturate(0.92) brightness(0.88)',
+        opacity: videoReady ? 0 : 1,
+        transition: 'opacity 0.45s ease',
       }} />
 
       {/* YT iframe — sized to cover */}
@@ -64,12 +89,13 @@ function Hero() {
           frameBorder="0"
           style={{
             position: 'absolute',
-            top: '50%', left: '54%',
+            top: '50%', left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: 'max(100vw, 177.78vh)',
-            height: 'max(56.25vw, 100vh)',
+            width: 'max(122vw, 216.67vh)',
+            height: 'max(68.625vw, 122vh)',
             pointerEvents: 'none',
-            opacity: 0.52,
+            opacity: videoReady ? 1 : 0,
+            transition: 'opacity 0.45s ease',
           }}
         />
       </div>
