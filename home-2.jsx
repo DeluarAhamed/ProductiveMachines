@@ -64,7 +64,7 @@ function StoryStack() {
   }, []);
 
   return (
-    <section className="story-stack-section" data-screen-label="04 Story">
+    <section id="how-it-works" className="story-stack-section" data-screen-label="04 Story">
       <div className="container">
         <div className="story-stack-head" style={{ textAlign: 'center', maxWidth: 880, margin: '0 auto 80px' }}>
           <span className="tagline" style={{ color: '#2250FC', fontWeight: 500 }}>How it works</span>
