@@ -578,10 +578,10 @@ img, svg { display: block; max-width: 100%; }
   }
   .story-stack-stage {
     margin-top: 28px !important;
-    height: calc(var(--story-count) * 68svh) !important;
+    height: calc(var(--story-count) * 62svh) !important;
   }
   .story-stack-viewport {
-    height: min(600px, calc(100svh - var(--story-top) - 76px)) !important;
+    height: min(560px, calc(100svh - var(--story-top) - 72px)) !important;
     border-radius: 16px !important;
   }
   .story-sticky-card {
@@ -594,7 +594,7 @@ img, svg { display: block; max-width: 100%; }
     padding: 24px 18px !important;
     border-radius: 16px !important;
     display: flex;
-    align-items: flex-start !important;
+    align-items: center !important;
     justify-content: center !important;
   }
   .story-card-watermark {
@@ -930,10 +930,10 @@ img, svg { display: block; max-width: 100%; }
     padding-bottom: 20px !important;
   }
   .story-stack-stage {
-    height: calc(var(--story-count) * 72svh) !important;
+    height: calc(var(--story-count) * 64svh) !important;
   }
   .story-stack-viewport {
-    height: min(660px, calc(100svh - var(--story-top) - 28px)) !important;
+    height: min(540px, calc(100svh - var(--story-top) - 36px)) !important;
   }
   .story-sticky-card {
     min-height: 0 !important;
@@ -942,7 +942,7 @@ img, svg { display: block; max-width: 100%; }
     min-height: auto !important;
     height: 100% !important;
     padding: 18px 14px !important;
-    align-items: flex-start !important;
+    align-items: center !important;
   }
   .story-card-title {
     font-size: clamp(20px, 6.4vw, 27px) !important;
